@@ -4,3 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Sfondo globale */
+body {
+    background-image: url("../public/imgs/bg-legno-scuro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
