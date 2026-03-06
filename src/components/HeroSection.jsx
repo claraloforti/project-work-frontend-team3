@@ -1,7 +1,15 @@
+import '../valeria.css'
+
 function HeroSection() {
 
   return (
-    <h1>Io sono la hero</h1>
+    <>
+    <div className='hero-card'>
+      <h1>Io sono la hero del tuo sito</h1>
+      <p>qui andranno inserite delle immagini a scorrimento o un video in loop</p>
+
+    </div>
+    </>
   )
 }
 
