@@ -8,7 +8,7 @@
 
 /* Sfondo globale */
 body {
-    background-image: url("../public/imgs/bg-legno-scuro.jpg");
+    background-image: url("/imgs/bg-legno-scuro.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
