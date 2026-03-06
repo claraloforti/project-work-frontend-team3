@@ -1,7 +1,12 @@
+import Homepage from "./pages/Homepage"
+
+
 function App() {
 
   return (
-    <h1>Prova</h1>
+    <>
+    <Homepage/>
+    </>
   )
 }
 
