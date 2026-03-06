@@ -10,4 +10,7 @@ body {
     background-image: url("../public/imgs/bg-legno-scuro.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: "Bodoni Moda", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
