@@ -1,13 +1,17 @@
-import Homepage from "./pages/Homepage"
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from "./layouts/DefaultLayout";
+import Homepage from "./pages/Homepage";
 
 function App() {
-
   return (
-    <>
-      <Homepage />
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<Homepage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

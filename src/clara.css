@@ -1,0 +1,61 @@
+/* Container layout */
+.container {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.499);
+    position: relative;
+}
+
+.logo {
+    width: calc(100% / 3);
+}
+
+.logo-img {
+    width: 280px;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.home {
+    color: rgb(89, 72, 56);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-links {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.nav-links * {
+    text-decoration: none;
+}
+
+.fa-solid {
+    color: rgb(237, 207, 107);
+    font-size: 20px;
+}
+
+form * {
+    color: rgb(237, 207, 107);
+    font-size: 20px;
+}
+
+.search-form input {
+    width: 100px;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
