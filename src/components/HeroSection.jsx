@@ -1,7 +1,25 @@
+import '../valeria.css'
+
 function HeroSection() {
 
   return (
-    <h1>Io sono la hero</h1>
+    <>
+      <div className='hero-card'>
+        <video
+          src="../videos/fumo-whiskey.mp4"
+          autoPlay
+          muted
+          loop playsInline
+          className='hero-video'
+        />
+        <div className='hero-overlay'>
+          <h1>L'eredità del gusto, distillata.</h1>
+        <button className='hero-btn'>SCOPRI LA NOSTRA CANTINA</button>
+        </div>
+      </div>
+
+
+    </>
   )
 }
 
