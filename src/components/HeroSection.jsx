@@ -1,5 +1,5 @@
 import '../valeria.css'
-
+import { Link } from 'react-router-dom'
 function HeroSection() {
 
   return (
@@ -14,7 +14,7 @@ function HeroSection() {
         />
         <div className='hero-overlay'>
           <h1>L'eredità del gusto, distillata.</h1>
-        <button className='hero-btn'>SCOPRI LA NOSTRA CANTINA</button>
+          <Link to="/whisky" className='hero-btn'> SCOPRI LA NOSTRA CANTINA </Link>
         </div>
       </div>
 
