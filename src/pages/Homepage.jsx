@@ -1,12 +1,22 @@
 import HeroSection from "../components/HeroSection"
+import '../valeria.css'
 function Homepage() {
 
   return (
     <>
-    <HeroSection/>
-    <h1>Io sono la tua Homepage</h1>
-        </>
-    
+      <HeroSection />
+      <div className="on-sale-section">
+        <h2 className="on-sale-title">I NOSTRI PRODOTTI IN PROMOZIONE</h2>
+
+        <div className="cards-container">
+          <div className="whisky-card-mockup"></div>
+          <div className="whisky-card-mockup"></div>
+          <div className="whisky-card-mockup"></div>
+          <div className="whisky-card-mockup"></div>
+        </div>
+      </div>
+    </>
+
   )
 }
 
