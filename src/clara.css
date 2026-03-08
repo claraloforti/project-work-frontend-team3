@@ -1,7 +1,7 @@
 /* Container layout */
 .container {
     margin: 0 auto;
-    width: 1000px;
+    width: 1200px;
 }
 
 /* NAVBAR */
@@ -16,21 +16,22 @@
 }
 
 .logo-img {
-    width: 280px;
+    width: 340px;
     position: absolute;
-    top: -35px;
+    top: -60px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 3;
 }
 
 .home {
-    color: rgb(89, 72, 56);
+    color: rgb(237, 207, 107);
     text-decoration: none;
     font-size: 20px;
 }
 
 .nav-links {
-    height: 140px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: space-between
@@ -42,12 +43,12 @@
 
 .fa-solid {
     color: rgb(237, 207, 107);
-    font-size: 20px;
+    font-size: 22px;
 }
 
 form * {
     color: rgb(237, 207, 107);
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .search-form input {
@@ -57,5 +58,5 @@ form * {
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 40px;
 }

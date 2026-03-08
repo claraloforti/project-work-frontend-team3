@@ -11,7 +11,7 @@ function Navbar() {
         e.preventDefault();
 
         if (search.trim() !== "") {
-            navigate(`/filtered?search=${encodeURIComponent(search)}`);
+            navigate(`/whisky?search=${encodeURIComponent(search)}`);
         }
     };
 
@@ -19,6 +19,7 @@ function Navbar() {
         <div className="navbar">
             <div className="container nav-links">
                 <Link to="/" className="home">HOME</Link>
+                <Link to="/whisky" className="home">WHISKY</Link>
                 {/* LOGO */}
                 <Link to="/" className="logo">
                     <img

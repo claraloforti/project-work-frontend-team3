@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
 
 import Homepage from "./pages/Homepage";
-import FilteredWhiskyPage from "./pages/FilteredWhiskyPage";
+import WhiskyPage from "./pages/WhiskyPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import WishlistPage from "./pages/WishlistPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -15,7 +15,7 @@ function App() {
 
           <Route index element={<Homepage />} />
 
-          <Route path="/filtered" element={<FilteredWhiskyPage />} />
+          <Route path="/whisky" element={<WhiskyPage />} />
 
           <Route path="/checkout" element={<CheckoutPage />} />
 
