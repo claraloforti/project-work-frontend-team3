@@ -30,17 +30,9 @@ function Navbar() {
                 </Link>
                 <div className="nav-icons">
                     {/* SEARCH FORM */}
-                    <form className="search-form" onSubmit={handleSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Cerca..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                        />
-                        <button type="submit">
-                            <i className="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </form>
+                    <Link to="/whisky">
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                    </Link>
                     <Link to="/wishlist">
                         <i className="fa-solid fa-heart"></i>
                     </Link>

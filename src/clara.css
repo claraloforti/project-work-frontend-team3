@@ -46,15 +46,6 @@
     font-size: 22px;
 }
 
-form * {
-    color: rgb(237, 207, 107);
-    font-size: 22px;
-}
-
-.search-form input {
-    width: 100px;
-}
-
 .nav-icons {
     display: flex;
     align-items: center;
