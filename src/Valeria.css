@@ -64,8 +64,8 @@
 /*ON SALE SECTION  */
 .on-sale-section {
     width: 100%;
-    height: 70vh;
-    background-color: antiquewhite;
+    min-height: 70vh;
+
 }
 
 .on-sale-title {
@@ -79,13 +79,28 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    margin-top: 30px;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #edcf6bad;
+   
+
+
+
+
+}
+.whisky-img{
+    margin-top: 20px;
+    transition: 1s;
+}
+.whisky-img:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+
 
 }
 
-.whisky-card-mockup {
-    width: 400px;
-    height: 500px;
-    background-color: #000;
+.full-price{
+    color: #000;
+    font-size: 1.5;
 }
