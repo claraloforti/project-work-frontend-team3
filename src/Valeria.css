@@ -91,7 +91,7 @@
 }
 .whisky-img{
     margin-top: 20px;
-    transition: 1s;
+    transition: 0.75s;
 }
 .whisky-img:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -102,5 +102,5 @@
 
 .full-price{
     color: #000;
-    font-size: 1.5;
+    
 }
