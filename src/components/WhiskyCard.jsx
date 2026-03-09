@@ -1,16 +1,15 @@
-import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { CartContext } from "../context/CartContext"
-import { WishlistContext } from "../context/WishlistContext"
+import { useCart } from "../contexts/CartContext"
+import { useWishlist } from "../contexts/WishlistContext"
 
 function WhiskyCard({ whisky }) {
-    const { addToCart } = useContext(CartContext)
-    const { wishlist, toggleWishlist } = useContext(WishlistContext)
+    const { addToCart } = useCart();
+    const { wishlist, toggleWishlist } = useWishlist();
 
     // Calcolo prezzo scontato
     const finalPrice = whisky.price - (whisky.price * whisky.discount / 100)
 
-    // Controlla se il whisky è già nei preferiti
+    // Controllo se il whisky è già nei preferiti
     const isFavorite = wishlist.some(item => item.slug === whisky.slug)
 
     return (
@@ -22,7 +21,7 @@ function WhiskyCard({ whisky }) {
                 <h3>{whisky.name}</h3>
             </Link>
 
-            {/* Età */}
+            {/* Invecchiamento */}
             <p>Invecchiato {whisky.age} anni</p>
 
             {/* Prezzo */}
@@ -38,14 +37,18 @@ function WhiskyCard({ whisky }) {
             {/* Bottoni */}
             <div className="card-buttons">
                 <button
-                    className="add-to-cart"
-                    onClick={() => addToCart(whisky, 1)} // aggiunge 1 al carrello
+                    className="cart-btn"
+                    // Chiama la funzione addToCart dal CartContext
+                    // Al click aggiunge il whisky al carrello
+                    onClick={() => addToCart(whisky, 1)}
                 >
                     🛒 Aggiungi al carrello
                 </button>
 
                 <button
                     className={`wishlist-btn ${isFavorite ? "favorited" : ""}`}
+                    // Chiama la funzione toggleWishlist dal WishlistContext
+                    // Al click aggiunge o rimuove il Whisky dai preferiti
                     onClick={() => toggleWishlist(whisky)}
                 >
                     {isFavorite ? "❤️" : "🤍"}
