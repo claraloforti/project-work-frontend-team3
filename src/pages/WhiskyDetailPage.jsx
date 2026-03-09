@@ -19,7 +19,7 @@ function WhiskyDetailPage() {
             {/* Bottone torna ai prodotti */}
             <Link to="/whisky">
                 <button className="back-btn">
-                    ← Torna ai whisky
+                    ← TORNA ALLA COLLEZIONE
                 </button>
             </Link>
         </div>

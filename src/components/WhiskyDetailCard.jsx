@@ -15,22 +15,23 @@ function WhiskyDetailCard({ whisky }) {
     return (
 
         <div className="whisky-detail-card">
-            <img
-                src={whisky.image}
-                alt={whisky.name}
-                className="detail-img"
-            />
+            <div className="detail-img-wrapper">
+                <img src={whisky.image} alt={whisky.name} className="detail-img" />
+                {/* Icona aggiungi ai preferiti */}
+                <i
+                    className={`fa-solid fa-heart ${isFavorite ? "favorited" : ""}`}
+                    onClick={() => toggleWishlist(whisky)}
+                ></i>
+            </div>
             <div className="detail-info">
                 <h2>{whisky.name}</h2>
                 <p>{whisky.category}</p>
                 <p className="detail-description">
                     {whisky.description}
                 </p>
-                <div className="detail-specs">
-                    <p>{whisky.age} YO</p>
-                    <p>Gradazione: {whisky.alcohol}%</p>
-                    <p>Formato: {whisky.liters} L</p>
-                </div>
+                <p>{whisky.age} YO</p>
+                <p>Gradazione: {whisky.alcol}%</p>
+                <p>{whisky.liters} L</p>
 
                 {/* Prezzo */}
                 {
@@ -44,22 +45,13 @@ function WhiskyDetailCard({ whisky }) {
                     )
                 }
 
-                {/* Bottoni */}
-                <div className="detail-buttons">
-                    <button
-                        className="cart-btn"
-                        onClick={() => addToCart(whisky, 1)}
-                    >
-                        Aggiungi al carrello
-                    </button>
-
-                    <button
-                        className={`wishlist-btn ${isFavorite ? "favorited" : ""}`}
-                        onClick={() => toggleWishlist(whisky)}
-                    >
-                        {isFavorite ? "❤️" : "🤍"}
-                    </button>
-                </div>
+                {/* Bottone aggiungi al carrello */}
+                <button
+                    className="cart-btn"
+                    onClick={() => addToCart(whisky, 1)}
+                >
+                    Aggiungi al carrello
+                </button>
             </div>
         </div>
     );

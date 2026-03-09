@@ -14,19 +14,28 @@ function WhiskyCard({ whisky }) {
 
     return (
         <div className="whisky-card">
-            {/* Link al dettaglio */}
+
+            <div className="whisky-img-wrapper">
+                {/* Link al dettaglio */}
+                <Link to={`/whisky/${whisky.slug}`} className="whisky-link">
+                    <img src={whisky.image} alt={whisky.name} className="whisky-img" />
+                </Link>
+                {/* Icona cuore per aggiungere ai preferiti */}
+                <i
+                    className={`fa-solid fa-heart ${isFavorite ? "favorited" : ""}`}
+                    onClick={() => toggleWishlist(whisky)}
+                ></i>
+            </div>
+
+            {/* Link solo sul titolo */}
             <Link to={`/whisky/${whisky.slug}`} className="whisky-link">
-                <img src={whisky.image} alt={whisky.name} className="whisky-img" />
                 <h3>{whisky.name}</h3>
             </Link>
-
-            {/* Invecchiamento */}
             <div className="whisky-info">
                 <p>{whisky.category}</p>
                 <p>{whisky.description}</p>
                 <p>{whisky.age} YO</p>
             </div>
-
             {/* Prezzo */}
             {
                 whisky.discount > 0 ? (
@@ -39,7 +48,7 @@ function WhiskyCard({ whisky }) {
                 )
             }
 
-            {/* Bottoni */}
+            {/* Bottone aggiungi al carrello */}
             <div className="card-buttons">
                 <button
                     className="cart-btn"
@@ -48,15 +57,6 @@ function WhiskyCard({ whisky }) {
                     onClick={() => addToCart(whisky, 1)}
                 >
                     Aggiungi al carrello
-                </button>
-
-                <button
-                    className={`wishlist-btn ${isFavorite ? "favorited" : ""}`}
-                    // Chiama la funzione toggleWishlist dal WishlistContext
-                    // Al click aggiunge o rimuove il Whisky dai preferiti
-                    onClick={() => toggleWishlist(whisky)}
-                >
-                    {isFavorite ? "❤️" : "🤍"}
                 </button>
             </div>
         </div>

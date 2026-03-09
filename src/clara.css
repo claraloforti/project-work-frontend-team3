@@ -4,6 +4,11 @@
     width: 1200px;
 }
 
+.container a {
+    text-decoration: none;
+}
+
+
 /* NAVBAR */
 
 .navbar {
@@ -26,7 +31,6 @@
 
 .home {
     color: rgb(237, 207, 107);
-    text-decoration: none;
     font-size: 20px;
 }
 
@@ -37,11 +41,7 @@
     justify-content: space-between;
 }
 
-.nav-links * {
-    text-decoration: none;
-}
-
-.fa-solid {
+.navbar .fa-solid {
     color: rgb(237, 207, 107);
     font-size: 22px;
 }
@@ -51,6 +51,7 @@
     align-items: center;
     gap: 40px;
 }
+
 
 /* WHISKY CARD */
 
@@ -67,22 +68,22 @@
     width: 100%;
 }
 
-.whisky-link {
-    text-decoration: none;
-    color: white;
-}
-
-.whisky-info,
-.whisky-price,
+.whisky-card *,
 .full-price-no-discount {
     color: white;
 }
 
 .full-price {
     text-decoration: line-through;
-    color: #999;
+    color: black;
     font-size: 0.9rem;
     margin-right: 10px;
+}
+
+.cart-btn {
+    padding: 5px;
+    background-color: rgb(45, 45, 45);
+    color: white;
 }
 
 .whisky-page {
@@ -95,6 +96,7 @@
     margin-bottom: 30px;
 }
 
+
 /* WHISKY DETAIL CARD */
 
 .whisky-detail-card {
@@ -102,11 +104,17 @@
     color: white;
     gap: 40px;
     justify-content: center;
-    margin: 70px 0;
+    margin: 100px 0;
+    background-color: #edcf6bad;
+    padding: 50px;
+}
+
+.detail-img-wrapper {
+    width: 400px;
 }
 
 .detail-img {
-    width: 30%;
+    width: 100%;
 }
 
 .detail-info {
@@ -117,10 +125,29 @@
 
 .back-btn {
     display: block;
-    margin: 30px auto;
+    margin: 0 auto 100px;
+    background-color: #edcf6bad;
+    padding: 10px;
 }
 
+.whisky-img-wrapper,
+.detail-img-wrapper {
+    position: relative;
+}
 
+.whisky-img-wrapper i,
+.detail-img-wrapper i {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.29);
+    font-size: 32px;
+    left: 85%;
+    top: 8%;
+}
+
+.whisky-img-wrapper i.favorited,
+.detail-img-wrapper i.favorited {
+    color: red;
+}
 
 
 /* FOOTER */
