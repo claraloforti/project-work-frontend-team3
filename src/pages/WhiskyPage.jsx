@@ -25,7 +25,7 @@ function WhiskyPage() {
     });
 
     return (
-        <div className="whisky-page">
+        <div className="whisky-page container">
             <h1>La nostra collezione</h1>
 
             {/* Barra ricerca */}
