@@ -52,8 +52,34 @@
     gap: 40px;
 }
 
-/* WHISKYPAGE */
+/* WHISKYCARD */
 
 .whisky-img {
     width: 200px;
+}
+
+.whisky-link {
+    text-decoration: none;
+    color: white;
+}
+
+.whisky-info,
+.whisky-price,
+.full-price-no-discount {
+    color: white;
+}
+
+.full-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+
+/* FOOTER */
+
+footer {
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.321);
 }

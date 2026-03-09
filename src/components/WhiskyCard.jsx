@@ -22,17 +22,22 @@ function WhiskyCard({ whisky }) {
             </Link>
 
             {/* Invecchiamento */}
-            <p>Invecchiato {whisky.age} anni</p>
+            <div className="whisky-info">
+                <p>{whisky.description}</p>
+                <p>Invecchiato {whisky.age} anni</p>
+            </div>
 
             {/* Prezzo */}
-            {whisky.discount > 0 ? (
-                <div className="price">
-                    <span className="full-price">{whisky.price} €</span>
-                    <span className="discount-price">{finalPrice.toFixed(2)} €</span>
-                </div>
-            ) : (
-                <p>{whisky.price} €</p>
-            )}
+            {
+                whisky.discount > 0 ? (
+                    <div className="whisky-price">
+                        <span className="full-price">{whisky.price} €</span>
+                        <span className="discount-price">{finalPrice.toFixed(2)} €</span>
+                    </div>
+                ) : (
+                    <p className="full-price-no-discount">{whisky.price} €</p>
+                )
+            }
 
             {/* Bottoni */}
             <div className="card-buttons">
@@ -55,7 +60,7 @@ function WhiskyCard({ whisky }) {
                 </button>
             </div>
 
-        </div>
+        </div >
     )
 }
 

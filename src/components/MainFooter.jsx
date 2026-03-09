@@ -1,7 +1,7 @@
 function MainFooter() {
     return (
         <footer>
-            <p>© 2026 Whisky Shop. Tutti i diritti riservati.</p>
+            <p>© 2026 Whisky Shop.</p>
         </footer>
     )
 }
