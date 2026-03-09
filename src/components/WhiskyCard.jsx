@@ -14,7 +14,6 @@ function WhiskyCard({ whisky }) {
 
     return (
         <div className="whisky-card">
-
             {/* Link al dettaglio */}
             <Link to={`/whisky/${whisky.slug}`} className="whisky-link">
                 <img src={whisky.image} alt={whisky.name} className="whisky-img" />
@@ -23,8 +22,9 @@ function WhiskyCard({ whisky }) {
 
             {/* Invecchiamento */}
             <div className="whisky-info">
+                <p>{whisky.category}</p>
                 <p>{whisky.description}</p>
-                <p>Invecchiato {whisky.age} anni</p>
+                <p>{whisky.age} YO</p>
             </div>
 
             {/* Prezzo */}
@@ -47,7 +47,7 @@ function WhiskyCard({ whisky }) {
                     // Al click aggiunge il whisky al carrello
                     onClick={() => addToCart(whisky, 1)}
                 >
-                    🛒 Aggiungi al carrello
+                    Aggiungi al carrello
                 </button>
 
                 <button
@@ -59,8 +59,7 @@ function WhiskyCard({ whisky }) {
                     {isFavorite ? "❤️" : "🤍"}
                 </button>
             </div>
-
-        </div >
+        </div>
     )
 }
 

@@ -34,7 +34,7 @@
     height: 200px;
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
 }
 
 .nav-links * {
@@ -52,7 +52,7 @@
     gap: 40px;
 }
 
-/* WHISKYCARD */
+/* WHISKY CARD */
 
 .cards-container {
     display: flex;
@@ -93,6 +93,31 @@
 .whisky-page h1 {
     color: white;
     margin-bottom: 30px;
+}
+
+/* WHISKY DETAIL CARD */
+
+.whisky-detail-card {
+    display: flex;
+    color: white;
+    gap: 40px;
+    justify-content: center;
+    margin: 70px 0;
+}
+
+.detail-img {
+    width: 30%;
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.back-btn {
+    display: block;
+    margin: 30px auto;
 }
 
 
