@@ -1,31 +1,39 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
-
+import { CartProvider } from "./contexts/CartContext"
+import { WishlistProvider } from "./contexts/WishlistContext"
 import Homepage from "./pages/Homepage";
 import WhiskyPage from "./pages/WhiskyPage";
+import WhiskyDetailPage from "./pages/WhiskyDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import WishlistPage from "./pages/WishlistPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DefaultLayout />}>
+    <CartProvider>
+      <WishlistProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
 
-          <Route index element={<Homepage />} />
+              <Route index element={<Homepage />} />
 
-          <Route path="/whisky" element={<WhiskyPage />} />
+              <Route path="/whisky" element={<WhiskyPage />} />
 
-          <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/whisky/:slug" element={<WhiskyDetailPage />} />
 
-          <Route path="/wishlist" element={<WishlistPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
 
-          <Route path="*" element={<NotFoundPage />} />
+              <Route path="/wishlist" element={<WishlistPage />} />
 
-        </Route>
-      </Routes>
-    </BrowserRouter>
+              <Route path="*" element={<NotFoundPage />} />
+
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </WishlistProvider>
+    </CartProvider >
   );
 }
 

@@ -51,3 +51,56 @@
     align-items: center;
     gap: 40px;
 }
+
+/* WHISKYCARD */
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+}
+
+.whisky-card {
+    width: calc((100% / 3) - 20px);
+}
+
+.whisky-img {
+    width: 100%;
+}
+
+.whisky-link {
+    text-decoration: none;
+    color: white;
+}
+
+.whisky-info,
+.whisky-price,
+.full-price-no-discount {
+    color: white;
+}
+
+.full-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.whisky-page {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.whisky-page h1 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+
+
+
+/* FOOTER */
+
+footer {
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.321);
+}

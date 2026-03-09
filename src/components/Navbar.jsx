@@ -1,26 +1,15 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../clara.css";
-import { useState } from "react";
 
 function Navbar() {
-
-    const navigate = useNavigate();
-    const [search, setSearch] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (search.trim() !== "") {
-            navigate(`/whisky?search=${encodeURIComponent(search)}`);
-        }
-    };
-
     return (
         <div className="navbar">
             <div className="container nav-links">
+                {/* Link principali */}
                 <Link to="/" className="home">HOME</Link>
                 <Link to="/whisky" className="home">WHISKY</Link>
-                {/* LOGO */}
+
+                {/* Logo */}
                 <Link to="/" className="logo">
                     <img
                         src="/imgs/logo.png"
@@ -28,14 +17,20 @@ function Navbar() {
                         className="logo-img"
                     />
                 </Link>
+
+                {/* Icone */}
                 <div className="nav-icons">
-                    {/* SEARCH FORM */}
+                    {/* Lente che porta a WhiskyPage */}
                     <Link to="/whisky">
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </Link>
+
+                    {/* Cuore che porta alla WishListPage */}
                     <Link to="/wishlist">
                         <i className="fa-solid fa-heart"></i>
                     </Link>
+
+                    {/* Carrello che porta alla CheckoutPage */}
                     <Link to="/checkout">
                         <i className="fa-solid fa-cart-shopping"></i>
                     </Link>
