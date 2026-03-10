@@ -68,7 +68,8 @@
 
 }
 
-.on-sale-title, .new-title {
+.on-sale-title,
+.new-title {
     font-size: 2.5rem;
     color: #eec461;
     text-align: center;
@@ -83,17 +84,19 @@
     margin: 0 auto;
     background-color: #edcf6bad;
     padding: 20px;
-   
+
 
 
 
 
 }
-.whisky-img{
-    
+
+.whisky-img {
+
     margin-top: 20px;
     transition: 0.75s;
 }
+
 .whisky-img:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
@@ -101,7 +104,7 @@
 
 }
 
-.full-price{
+.full-price {
     color: #000;
-    
+
 }

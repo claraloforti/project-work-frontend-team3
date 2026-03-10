@@ -17,16 +17,16 @@ function Homepage() {
   return (
     <>
       <HeroSection />
-      
+
       {/* SEZIONE NUOVI ARRIVI */}
       <section className="new-products">
         <h2 className="new-title">ULTIMI ARRIVI IN CANTINA</h2>
         <div className="cards-container">
           {newProducts.map((whisky) => (
-            
-            <WhiskyCard 
-            key={whisky.slug}
-             whisky={whisky} />
+
+            <WhiskyCard
+              key={whisky.slug}
+              whisky={whisky} />
           ))}
         </div>
       </section>
