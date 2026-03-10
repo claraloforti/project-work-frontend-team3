@@ -76,7 +76,8 @@
 
 }
 
-.cards-container {
+.new-products .cards-container,
+.on-sale-section .cards-container {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -84,11 +85,11 @@
     margin: 0 auto;
     background-color: #edcf6bad;
     padding: 20px;
+}
 
-
-
-
-
+.new-products .whisky-card,
+.on-sale-section .whisky-card {
+    width: calc((100% / 4) - 20px);
 }
 
 .whisky-img {
