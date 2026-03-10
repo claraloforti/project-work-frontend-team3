@@ -6,11 +6,14 @@ function Navbar() {
         <div className="navbar">
             <div className="container nav-links">
                 {/* Link principali */}
-                <Link to="/" className="home">HOME</Link>
-                <Link to="/whisky" className="home">WHISKY</Link>
+                <Link to="/" className="home"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>HOME</Link>
+                <Link to="/whisky" className="home"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>WHISKY</Link>
 
                 {/* Logo */}
-                <Link to="/" className="logo">
+                <Link to="/" className="logo"
+                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                     <img
                         src="/imgs/logo.png"
                         alt="Heritage Whisky Reserve Logo"
@@ -21,7 +24,8 @@ function Navbar() {
                 {/* Icone */}
                 <div className="nav-icons">
                     {/* Lente che porta a WhiskyPage */}
-                    <Link to="/whisky">
+                    <Link to="/whisky"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </Link>
 
