@@ -12,8 +12,11 @@
 /* NAVBAR */
 
 .navbar {
-    background-color: rgba(0, 0, 0, 0.499);
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.849);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .logo {
@@ -55,12 +58,15 @@
 
 /* WHISKY CARD */
 
-.cards-container {
+.whisky-page .cards-container {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
+    background-color: #edcf6bad;
+    padding: 20px;
 }
 
-.whisky-card {
+.whisky-page .whisky-card {
     width: calc((100% / 3) - 20px);
 }
 
@@ -84,6 +90,7 @@
     padding: 5px;
     background-color: rgb(45, 45, 45);
     color: white;
+    cursor: pointer;
 }
 
 .whisky-page {
@@ -92,10 +99,13 @@
 }
 
 .whisky-page h1 {
-    color: white;
+    color: #eec461;
     margin-bottom: 30px;
 }
 
+.categories-filter {
+    margin-bottom: 30px;
+}
 
 /* WHISKY DETAIL CARD */
 
@@ -130,6 +140,8 @@
     padding: 10px;
 }
 
+/* CUORE AGGIUNGI AI PREFERITI */
+
 .whisky-img-wrapper,
 .detail-img-wrapper {
     position: relative;
@@ -142,11 +154,13 @@
     font-size: 32px;
     left: 85%;
     top: 8%;
+    cursor: pointer;
 }
 
 .whisky-img-wrapper i.favorited,
 .detail-img-wrapper i.favorited {
     color: red;
+    cursor: pointer;
 }
 
 
