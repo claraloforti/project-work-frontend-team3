@@ -103,8 +103,29 @@
     margin-bottom: 30px;
 }
 
+/* FILTRI RICERCA */
+
+.search-input {
+    margin-bottom: 20px;
+}
+
+.search-input * {
+    font-size: 18px;
+}
+
+.sort-options,
 .categories-filter {
-    margin: 10px 0;
+    display: inline;
+    margin: 10px;
+}
+
+.sort-options select,
+.categories-filter select {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #2d2d2d;
+    color: white;
+    border-radius: 5px;
 }
 
 /* TOGGLE VISUALIZZAZIONE CARD */
@@ -112,7 +133,7 @@
 .view-toggle {
     color: white;
     font-size: 20px;
-    margin-bottom: 30px;
+    margin: 20px 0;
 }
 
 .view-toggle * {
@@ -143,6 +164,10 @@
 
 .whisky-page .cards-container.list .whisky-img {
     width: 100%;
+}
+
+.whisky-page .cards-container.list .cart-btn {
+    margin-top: 20px;
 }
 
 

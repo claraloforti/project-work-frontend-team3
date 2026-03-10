@@ -12,8 +12,7 @@ function Navbar() {
                     onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>WHISKY</Link>
 
                 {/* Logo */}
-                <Link to="/" className="logo"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+                <Link to="/" className="logo">
                     <img
                         src="/imgs/logo.png"
                         alt="Heritage Whisky Reserve Logo"
