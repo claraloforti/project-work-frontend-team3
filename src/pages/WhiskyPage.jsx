@@ -8,6 +8,8 @@ function WhiskyPage() {
     const [searchTerm, setSearchTerm] = useState("");
     // Stato per filtro categorie    
     const [categoryFilter, setCategoryFilter] = useState("");
+    // Stato per visualizzazione in griglia di default
+    const [viewMode, setViewMode] = useState("grid");
 
     // Lista categorie
     const categories = [];
@@ -50,8 +52,21 @@ function WhiskyPage() {
                 </select>
             </div>
 
+            {/* Toggle visualizzazione griglia o lista */}
+            <div className="view-toggle">
+                <i
+                    className="fa-solid fa-grip"
+                    onClick={() => setViewMode("grid")}
+                ></i>
+
+                <i
+                    className="fa-solid fa-bars"
+                    onClick={() => setViewMode("list")}
+                ></i>
+            </div>
+
             {/* Card whisky */}
-            <div className="cards-container">
+            <div className={`cards-container ${viewMode}`}>
                 {filteredWhiskies.length > 0 ? (
                     filteredWhiskies.map(w => (
                         <WhiskyCard key={w.slug} whisky={w} />

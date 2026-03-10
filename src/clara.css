@@ -58,7 +58,7 @@
 
 /* WHISKY CARD */
 
-.whisky-page .cards-container {
+.whisky-page .cards-container.grid {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -66,7 +66,7 @@
     padding: 20px;
 }
 
-.whisky-page .whisky-card {
+.whisky-page .cards-container.grid .whisky-card {
     width: calc((100% / 3) - 20px);
 }
 
@@ -104,8 +104,48 @@
 }
 
 .categories-filter {
+    margin: 10px 0;
+}
+
+/* TOGGLE VISUALIZZAZIONE CARD */
+
+.view-toggle {
+    color: white;
+    font-size: 20px;
     margin-bottom: 30px;
 }
+
+.view-toggle * {
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* VISUALIZZAZIONE IN LISTA */
+
+.whisky-page .cards-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #edcf6bad;
+    padding: 20px;
+}
+
+.whisky-page .cards-container.list .whisky-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 25%;
+}
+
+.whisky-page .cards-container.list .whisky-img-wrapper {
+    width: 300px;
+}
+
+.whisky-page .cards-container.list .whisky-img {
+    width: 100%;
+}
+
+
 
 /* WHISKY DETAIL CARD */
 
