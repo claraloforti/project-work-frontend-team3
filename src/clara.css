@@ -60,14 +60,18 @@
 
 .whisky-page .cards-container.grid {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
     background-color: #edcf6bad;
-    padding: 20px;
+    padding: 50px;
 }
 
 .whisky-page .cards-container.grid .whisky-card {
     width: calc((100% / 3) - 20px);
+}
+
+.whisky-page .cards-container.grid .whisky-info {
+    margin-top: 10px;
 }
 
 .whisky-img {
