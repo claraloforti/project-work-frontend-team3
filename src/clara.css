@@ -132,6 +132,17 @@
     border-radius: 5px;
 }
 
+.promo-filter {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.promo-filter label {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
 /* TOGGLE VISUALIZZAZIONE CARD */
 
 .view-toggle {

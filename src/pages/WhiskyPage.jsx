@@ -8,6 +8,8 @@ function WhiskyPage() {
     const [searchTerm, setSearchTerm] = useState("");
     // Stato per filtro categorie    
     const [categoryFilter, setCategoryFilter] = useState("");
+    // Stato per filtro in promozione
+    const [promoFilter, setPromoFilter] = useState(false);
     // Stato per visualizzazione in griglia di default
     const [viewMode, setViewMode] = useState("grid");
     // Stato per opzioni di ordinamento 
@@ -25,7 +27,9 @@ function WhiskyPage() {
     const filteredWhiskies = whiskies.filter((w) => {
         const matchesSearch = w.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = categoryFilter ? w.category === categoryFilter : true;
-        return matchesSearch && matchesCategory;
+        const matchesPromo = promoFilter ? w.discount > 0 : true;
+
+        return matchesSearch && matchesCategory && matchesPromo;
     });
 
     // Ordina in base alla scelta dell'utente
@@ -51,6 +55,19 @@ function WhiskyPage() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
+
+            {/* Checkbox filtro in promozione */}
+            <div className="promo-filter">
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={promoFilter}
+                        onChange={(e) => setPromoFilter(e.target.checked)}
+                    />
+                    In promozione
+                </label>
+            </div>
+
             {/* Opzioni di ordinamento per prezzo, nome, recenti */}
             <div className="sort-options">
                 <select
@@ -65,6 +82,7 @@ function WhiskyPage() {
                     <option value="recent">Più recenti</option>
                 </select>
             </div>
+
             {/* Filtro categorie */}
             <div className="categories-filter">
                 <select
