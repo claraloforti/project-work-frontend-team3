@@ -30,6 +30,9 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+
+    pointer-events: none;
+    /* Impedisce che l’area trasparente del logo blocchi i clic sugli elementi sottostanti */
 }
 
 .home {
