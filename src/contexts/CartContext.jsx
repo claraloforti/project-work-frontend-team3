@@ -31,7 +31,7 @@ function CartProvider({ children }) {
                     name: whisky.name,
                     image: whisky.image,
                     quantity,
-                    unitary_price: finalPrice, // sempre salvato
+                    unitary_price: Number(finalPrice), // sempre salvato
                 }
             ]);
         }
