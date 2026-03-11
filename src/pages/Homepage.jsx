@@ -10,32 +10,30 @@ function Homepage() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      try {
-        // 1️⃣ Prendo tutti i prodotti ordinati per più recenti → nuovi arrivi
-        const resAll = await axios.get("http://localhost:3000/api/products", {
-          params: { sort: "recent" }
-        });
-        const allProducts = resAll.data;
+    setLoading(true);
+
+    // Prendo i 4 prodotti più recenti
+    axios.get("http://localhost:3000/api/products", { params: { sort: "recent" } })
+      .then(res => {
+        const allProducts = res.data;
         setNewProducts(allProducts.slice(0, 4));
-
-        // 2️⃣ Prendo solo i prodotti in promo → back-end filtra discount > 0
-        const resPromo = await axios.get("http://localhost:3000/api/products", {
-          params: { promo: "true" }
-        });
-        setOnSaleWhiskies(resPromo.data);
-
-      } catch (err) {
-        console.error(err);
+      })
+      .catch(err => {
+        console.error("Errore nel caricamento nuovi prodotti:", err);
         setNewProducts([]);
-        setOnSaleWhiskies([]);
-      } finally {
-        setLoading(false);
-      }
-    };
+      });
 
-    fetchProducts();
+    // Prendo solo i prodotti in promozione
+    axios.get("http://localhost:3000/api/products", { params: { promo: "true" } })
+      .then(res => {
+        setOnSaleWhiskies(res.data);
+      })
+      .catch(err => {
+        console.error("Errore nel caricamento prodotti in promo:", err);
+        setOnSaleWhiskies([]);
+      })
+      .finally(() => setLoading(false));
+
   }, []);
 
   return (
