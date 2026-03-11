@@ -21,7 +21,7 @@ function CheckoutPage() {
                                 {/* Nome e immagine */}
                                 <p>{item.name}</p>
                                 <img src={item.image} alt={item.name}></img>
-                                <p>{item.discountedPrice?.toFixed(2) ?? item.price.toFixed(2)} €</p>
+                                <p>{Number(item.discountedPrice || item.price).toFixed(2)} €</p>
                                 <p>
                                     <button onClick={() => decrementQuantity(item.slug)}>-</button>
                                     <span>{item.quantity}</span>
