@@ -298,6 +298,15 @@
     margin-bottom: 50px;
 }
 
+.checkout-page img {
+    width: 300px;
+}
+
+.cart-products button {
+    padding: 10px;
+    margin: 10px;
+}
+
 /* ORDER FORM */
 .order-form {
     display: flex;
