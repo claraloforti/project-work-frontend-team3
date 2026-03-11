@@ -8,6 +8,12 @@ function WhiskyPage() {
     const [searchTerm, setSearchTerm] = useState("");
     // Stato per filtro categorie    
     const [categoryFilter, setCategoryFilter] = useState("");
+    // Stato per filtro in promozione
+    const [promoFilter, setPromoFilter] = useState(false);
+    // Stato per visualizzazione in griglia di default
+    const [viewMode, setViewMode] = useState("grid");
+    // Stato per opzioni di ordinamento 
+    const [sortOption, setSortOption] = useState("");
 
     // Lista categorie
     const categories = [];
@@ -21,7 +27,19 @@ function WhiskyPage() {
     const filteredWhiskies = whiskies.filter((w) => {
         const matchesSearch = w.name.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesCategory = categoryFilter ? w.category === categoryFilter : true;
-        return matchesSearch && matchesCategory;
+        const matchesPromo = promoFilter ? w.discount > 0 : true;
+
+        return matchesSearch && matchesCategory && matchesPromo;
+    });
+
+    // Ordina in base alla scelta dell'utente
+    const sortedWhiskies = [...filteredWhiskies].sort((a, b) => {
+        if (sortOption === "price-asc") return a.price - b.price;
+        if (sortOption === "price-desc") return b.price - a.price;
+        if (sortOption === "name-asc") return a.name.localeCompare(b.name);
+        if (sortOption === "name-desc") return b.name.localeCompare(a.name);
+        if (sortOption === "recent") return new Date(b.createdAt) - new Date(a.createdAt);
+        return 0;
     });
 
     return (
@@ -37,6 +55,34 @@ function WhiskyPage() {
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
+
+            {/* Checkbox filtro in promozione */}
+            <div className="promo-filter">
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={promoFilter}
+                        onChange={(e) => setPromoFilter(e.target.checked)}
+                    />
+                    In promozione
+                </label>
+            </div>
+
+            {/* Opzioni di ordinamento per prezzo, nome, recenti */}
+            <div className="sort-options">
+                <select
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                >
+                    <option value="">Ordina per...</option>
+                    <option value="price-asc">Prezzo: dal più basso</option>
+                    <option value="price-desc">Prezzo: dal più alto</option>
+                    <option value="name-asc">Nome: A → Z</option>
+                    <option value="name-desc">Nome: Z → A</option>
+                    <option value="recent">Più recenti</option>
+                </select>
+            </div>
+
             {/* Filtro categorie */}
             <div className="categories-filter">
                 <select
@@ -50,10 +96,23 @@ function WhiskyPage() {
                 </select>
             </div>
 
+            {/* Toggle visualizzazione griglia o lista */}
+            <div className="view-toggle">
+                <i
+                    className="fa-solid fa-grip"
+                    onClick={() => setViewMode("grid")}
+                ></i>
+
+                <i
+                    className="fa-solid fa-bars"
+                    onClick={() => setViewMode("list")}
+                ></i>
+            </div>
+
             {/* Card whisky */}
-            <div className="cards-container">
-                {filteredWhiskies.length > 0 ? (
-                    filteredWhiskies.map(w => (
+            <div className={`cards-container ${viewMode}`}>
+                {sortedWhiskies.length > 0 ? (
+                    sortedWhiskies.map(w => (
                         <WhiskyCard key={w.slug} whisky={w} />
                     ))
                 ) : (

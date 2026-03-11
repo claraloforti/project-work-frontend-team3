@@ -30,6 +30,9 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+
+    pointer-events: none;
+    /* Impedisce che l’area trasparente del logo blocchi i clic sugli elementi sottostanti */
 }
 
 .home {
@@ -58,16 +61,20 @@
 
 /* WHISKY CARD */
 
-.whisky-page .cards-container {
+.whisky-page .cards-container.grid {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     flex-wrap: wrap;
     background-color: #edcf6bad;
-    padding: 20px;
+    padding: 50px;
 }
 
-.whisky-page .whisky-card {
+.whisky-page .cards-container.grid .whisky-card {
     width: calc((100% / 3) - 20px);
+}
+
+.whisky-page .cards-container.grid .whisky-info {
+    margin-top: 10px;
 }
 
 .whisky-img {
@@ -103,9 +110,85 @@
     margin-bottom: 30px;
 }
 
-.categories-filter {
-    margin-bottom: 30px;
+/* FILTRI RICERCA */
+
+.search-input {
+    margin-bottom: 20px;
 }
+
+.search-input * {
+    font-size: 18px;
+}
+
+.sort-options,
+.categories-filter {
+    display: inline;
+    margin: 10px;
+}
+
+.sort-options select,
+.categories-filter select {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #2d2d2d;
+    color: white;
+    border-radius: 5px;
+}
+
+.promo-filter {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.promo-filter label {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* TOGGLE VISUALIZZAZIONE CARD */
+
+.view-toggle {
+    color: white;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.view-toggle * {
+    margin: 5px;
+    cursor: pointer;
+}
+
+/* VISUALIZZAZIONE IN LISTA */
+
+.whisky-page .cards-container.list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #edcf6bad;
+    padding: 20px;
+}
+
+.whisky-page .cards-container.list .whisky-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 25%;
+}
+
+.whisky-page .cards-container.list .whisky-img-wrapper {
+    width: 300px;
+}
+
+.whisky-page .cards-container.list .whisky-img {
+    width: 100%;
+}
+
+.whisky-page .cards-container.list .cart-btn {
+    margin-top: 20px;
+}
+
+
 
 /* WHISKY DETAIL CARD */
 
