@@ -111,7 +111,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                 <h2>Dati per la fatturazione</h2>
                 <input
                     type="text"
-                    name="customer_name"
+                    name="billing_name"
                     placeholder="Nome"
                     value={customer.customer_name}
                     onChange={handleChange}
@@ -119,7 +119,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                 />
                 <input
                     type="text"
-                    name="customer_surname"
+                    name="billing_surname"
                     placeholder="Cognome"
                     value={customer.customer_surname}
                     onChange={handleChange}
@@ -127,7 +127,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                 />
                 <input
                     type="email"
-                    name="customer_email"
+                    name="billing_email"
                     placeholder="Email"
                     value={customer.customer_email}
                     onChange={handleChange}
@@ -143,7 +143,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                 />
                 <input
                     type="tel"
-                    name="customer_phone"
+                    name="billing_phone"
                     placeholder="Telefono"
                     value={customer.customer_phone}
                     onChange={handleChange}
