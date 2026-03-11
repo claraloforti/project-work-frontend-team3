@@ -35,8 +35,40 @@ function CartProvider({ children }) {
         );
     };
 
+    // Incrementa la quantità di un prodotto
+    const incrementQuantity = (slug) => {
+        setCart(
+            cart.map(item =>
+                item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
+            )
+        );
+    };
+
+    // Decrementa la quantità di un prodotto
+    const decrementQuantity = (slug) => {
+        setCart(
+            cart.map(item =>
+                item.slug === slug
+                    ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
+                    : item
+            )
+        );
+    };
+
+    // Calcolo totale dinamico del carrello
+    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+
     return (
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity }}>
+        <CartContext.Provider value={{
+            cart,
+            addToCart,
+            removeFromCart,
+            updateQuantity,
+            incrementQuantity,
+            decrementQuantity,
+            totalPrice
+        }}>
             {children}
         </CartContext.Provider>
     );
