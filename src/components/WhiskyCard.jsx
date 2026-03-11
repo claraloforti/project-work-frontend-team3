@@ -6,9 +6,6 @@ function WhiskyCard({ whisky }) {
     const { addToCart } = useCart();
     const { wishlist, toggleWishlist } = useWishlist();
 
-    // Calcolo prezzo scontato
-    const finalPrice = whisky.discountedPrice ?? whisky.price;
-
     // Controllo se il whisky è già nei preferiti
     const isFavorite = wishlist.some(item => item.slug === whisky.slug)
 
@@ -39,7 +36,7 @@ function WhiskyCard({ whisky }) {
                 {whisky.discount > 0 ? (
                     <div className="whisky-price">
                         <span className="full-price">{whisky.price} €</span>
-                        <span className="discount-price">{finalPrice.toFixed(2)} €</span>
+                        <span className="discount-price">{Number(whisky.unitary_price).toFixed(2)} €</span>
                     </div>
                 ) : (
                     <p className="full-price-no-discount">{whisky.price} €</p>
@@ -51,7 +48,14 @@ function WhiskyCard({ whisky }) {
                         className="cart-btn"
                         // Chiama la funzione addToCart dal CartContext
                         // Al click aggiunge il whisky al carrello
-                        onClick={() => addToCart(whisky, 1)}
+                        onClick={() => addToCart({
+                            id: whisky.id,
+                            slug: whisky.slug,
+                            name: whisky.name,
+                            image: whisky.image,
+                            price: whisky.price,
+                            unitary_price: whisky.unitary_price
+                        }, 1)}
                     >
                         Aggiungi al carrello
                     </button>
