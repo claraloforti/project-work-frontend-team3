@@ -7,7 +7,7 @@ function WhiskyCard({ whisky }) {
     const { wishlist, toggleWishlist } = useWishlist();
 
     // Calcolo prezzo scontato
-    const finalPrice = whisky.discountedPrice;
+    const finalPrice = whisky.discountedPrice ?? whisky.price;
 
     // Controllo se il whisky è già nei preferiti
     const isFavorite = wishlist.some(item => item.slug === whisky.slug)

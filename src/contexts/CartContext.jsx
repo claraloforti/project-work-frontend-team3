@@ -8,6 +8,7 @@ function CartProvider({ children }) {
     // Aggiunge un whisky al carrello (o incrementa se già presente)
     const addToCart = (whisky, quantity = 1) => {
         const alreadyInCart = cart.find(item => item.slug === whisky.slug);
+        const finalPrice = whisky.discountedPrice ?? whisky.price ?? 0;
         if (alreadyInCart) {
             setCart(
                 cart.map(item =>
@@ -17,7 +18,7 @@ function CartProvider({ children }) {
                 )
             );
         } else {
-            setCart([...cart, { ...whisky, quantity }]);
+            setCart([...cart, { ...whisky, quantity, price: finalPrice, discountedPrice: whisky.discountedPrice ?? whisky.price }]);
         }
     };
 
@@ -57,7 +58,7 @@ function CartProvider({ children }) {
 
     // Calcolo totale dinamico del carrello considerando eventuale sconto
     const totalPrice = cart.reduce(
-        (sum, item) => sum + (item.discountedPrice ?? item.price) * item.quantity,
+        (sum, item) => sum + ((item.discountedPrice ?? item.price ?? 0) * (item.quantity ?? 1)),
         0
     );
 

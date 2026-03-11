@@ -25,7 +25,7 @@ function CheckoutPage() {
                                     <span>{item.quantity}</span>
                                     <button onClick={() => incrementQuantity(item.slug)}>+</button>
                                 </p>
-                                <p>{((item.discountedPrice ?? item.price) * item.quantity).toFixed(2)} €</p>
+                                <p>{((item.discountedPrice ?? item.price ?? 0) * (item.quantity ?? 1)).toFixed(2)} €</p>
                                 <p>
                                     <button onClick={() => removeFromCart(item.slug)}>X</button>
                                 </p>
