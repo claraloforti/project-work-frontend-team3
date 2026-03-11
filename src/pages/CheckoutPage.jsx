@@ -18,20 +18,29 @@ function CheckoutPage() {
                     <div className="cart-products">
                         {cart.map(item => (
                             <div key={item.slug} className="cart-item">
-                                {/* Nome e immagine */}
-                                <p>{item.name}</p>
                                 <img src={item.image} alt={item.name}></img>
+                                <p>{item.name}</p>
+
                                 {/* Prezzo */}
-                                <p>Prezzo: {Number(item.unitary_price).toFixed(2)} €</p>
+                                {Number(item.unitary_price) < Number(item.price) ? (
+                                    <div className="whisky-price">
+                                        <span className="cart-full-price">{Number(item.price).toFixed(2)} €</span>
+                                        <span className="">{Number(item.unitary_price).toFixed(2)} €</span>
+                                    </div>
+                                ) : (
+                                    <p className="">{Number(item.unitary_price).toFixed(2)} €</p>
+                                )}
+
+                                {/* Bottoni incrementa/decrementa */}
                                 <p>
-                                    <button onClick={() => decrementQuantity(item.slug)}>-</button>
+                                    <button onClick={() => decrementQuantity(item.id)}>-</button>
                                     <span>{item.quantity}</span>
-                                    <button onClick={() => incrementQuantity(item.slug)}>+</button>
+                                    <button onClick={() => incrementQuantity(item.id)}>+</button>
                                 </p>
 
-                                {/* Bottone rimuovi prodotto */}
+                                {/* Bottone rimuovi prodotto dal carrello */}
                                 <p>
-                                    <button onClick={() => removeFromCart(item.slug)}>X</button>
+                                    <button onClick={() => removeFromCart(item.id)}>Rimuovi dal carrello</button>
                                 </p>
                             </div>
                         ))}

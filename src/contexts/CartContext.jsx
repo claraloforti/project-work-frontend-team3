@@ -5,19 +5,14 @@ const CartContext = createContext();
 function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
 
-    // Funzione che aggiunge un whisky al carrello
+    // Aggiunge un whisky al carrello
     const addToCart = (whisky, quantity = 1) => {
-        const alreadyInCart = cart.find(item => item.slug === whisky.slug);
-
-        // Calcolo del prezzo finale sempre corretto
-        const finalPrice = whisky.discount > 0
-            ? whisky.price - (whisky.price * whisky.discount / 100)
-            : whisky.price;
+        const alreadyInCart = cart.find(item => item.id === whisky.id);
 
         if (alreadyInCart) {
             setCart(
                 cart.map(item =>
-                    item.slug === whisky.slug
+                    item.id === whisky.id
                         ? { ...item, quantity: item.quantity + quantity }
                         : item
                 )
@@ -31,30 +26,29 @@ function CartProvider({ children }) {
                     name: whisky.name,
                     image: whisky.image,
                     quantity,
-                    unitary_price: Number(finalPrice), // sempre salvato
+                    unitary_price: Number(whisky.unitary_price),
+                    price: Number(whisky.price)
                 }
             ]);
         }
     };
 
-    const removeFromCart = (slug) => {
-        setCart(cart.filter(item => item.slug !== slug));
+    const removeFromCart = (id) => {
+        setCart(cart.filter(item => item.id !== id));
     };
 
-    const incrementQuantity = (slug) => {
+    const incrementQuantity = (id) => {
         setCart(
             cart.map(item =>
-                item.slug === slug
-                    ? { ...item, quantity: item.quantity + 1 }
-                    : item
+                item.id === id ? { ...item, quantity: item.quantity + 1 } : item
             )
         );
     };
 
-    const decrementQuantity = (slug) => {
+    const decrementQuantity = (id) => {
         setCart(
             cart.map(item =>
-                item.slug === slug
+                item.id === id
                     ? { ...item, quantity: item.quantity > 1 ? item.quantity - 1 : 1 }
                     : item
             )
