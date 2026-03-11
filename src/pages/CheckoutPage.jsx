@@ -18,30 +18,40 @@ function CheckoutPage() {
                     <div className="cart-products">
                         {cart.map(item => (
                             <div key={item.slug} className="cart-item">
-                                <img src={item.image} alt={item.name}></img>
-                                <p>{item.name}</p>
+                                <div className="cart-img-wrapper">
+                                    <img src={item.image} alt={item.name}></img>
+                                </div>
+                                <div className="cart-product-info">
+                                    <p className="cart-product-name">{item.name}</p>
+                                    {/* Prezzo */}
+                                    {Number(item.unitary_price) < Number(item.price) ? (
+                                        <div className="whisky-price">
+                                            <span className="cart-full-price">{Number(item.price).toFixed(2)} €</span>
+                                            <span>{Number(item.unitary_price).toFixed(2)} €</span>
+                                        </div>
+                                    ) : (
+                                        <p className="cart-unitary-price">{Number(item.unitary_price).toFixed(2)} €</p>
+                                    )}
 
-                                {/* Prezzo */}
-                                {Number(item.unitary_price) < Number(item.price) ? (
-                                    <div className="whisky-price">
-                                        <span className="cart-full-price">{Number(item.price).toFixed(2)} €</span>
-                                        <span className="">{Number(item.unitary_price).toFixed(2)} €</span>
-                                    </div>
-                                ) : (
-                                    <p className="">{Number(item.unitary_price).toFixed(2)} €</p>
-                                )}
 
-                                {/* Bottoni incrementa/decrementa */}
-                                <p>
-                                    <button onClick={() => decrementQuantity(item.id)}>-</button>
-                                    <span>{item.quantity}</span>
-                                    <button onClick={() => incrementQuantity(item.id)}>+</button>
-                                </p>
+                                    {/* Bottoni incrementa/decrementa */}
+                                    <p>
+                                        <button
+                                            className="decrement-btn"
+                                            onClick={() => decrementQuantity(item.id)}><i class="fa-solid fa-minus"></i></button>
+                                        <span>{item.quantity}</span>
+                                        <button
+                                            className="increment-btn"
+                                            onClick={() => incrementQuantity(item.id)}><i class="fa-solid fa-plus"></i></button>
+                                    </p>
 
-                                {/* Bottone rimuovi prodotto dal carrello */}
-                                <p>
-                                    <button onClick={() => removeFromCart(item.id)}>Rimuovi dal carrello</button>
-                                </p>
+                                    {/* Bottone rimuovi prodotto dal carrello */}
+                                    <p>
+                                        <button
+                                            className="remove-cart-btn"
+                                            onClick={() => removeFromCart(item.id)}>Rimuovi dal carrello</button>
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>

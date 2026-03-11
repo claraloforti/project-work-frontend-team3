@@ -289,7 +289,7 @@
 /* CHECKOUT PAGE */
 
 .checkout-page {
-    color: white;
+    color: rgb(237, 207, 107);
     text-align: center;
     margin-top: 30px;
 }
@@ -300,6 +300,10 @@
 
 .checkout-page img {
     width: 300px;
+}
+
+.cart-product-name {
+    font-size: 20px;
 }
 
 .cart-products button {
@@ -314,11 +318,27 @@
     font-size: 0.9rem;
 }
 
+.cart-unitary-price {
+    margin: 20px 0;
+}
+
 .cart-item {
     display: flex;
-    justify-content: center;
+    align-items: center;
     margin-bottom: 80px;
+    gap: 30px;
+    margin-left: 25%;
 }
+
+.decrement-btn,
+.increment-btn {
+    font-weight: bold;
+}
+
+.remove-cart-btn {
+    background-color: rgb(237, 207, 107);
+}
+
 
 /* ORDER FORM */
 .order-form {
