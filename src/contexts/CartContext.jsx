@@ -55,9 +55,11 @@ function CartProvider({ children }) {
         );
     };
 
-    // Calcolo totale dinamico del carrello
-    const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
+    // Calcolo totale dinamico del carrello considerando eventuale sconto
+    const totalPrice = cart.reduce(
+        (sum, item) => sum + (item.discountedPrice ?? item.price) * item.quantity,
+        0
+    );
 
     return (
         <CartContext.Provider value={{
