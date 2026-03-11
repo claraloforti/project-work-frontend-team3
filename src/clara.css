@@ -286,6 +286,45 @@
 }
 
 
+/* CHECKOUT PAGE */
+
+.checkout-page {
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.checkout-page h1 {
+    margin-bottom: 50px;
+}
+
+/* ORDER FORM */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+}
+
+.order-form * {
+    margin: 1px;
+    font-size: 20px;
+    width: 600px;
+}
+
+.total-order-price {
+    margin: 30px;
+}
+
+.total-order-price * {
+    font-size: 20px;
+}
+
+.billing-data h2 {
+    margin-top: 50px;
+}
+
+
 /* FOOTER */
 
 footer {
