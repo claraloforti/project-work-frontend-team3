@@ -3,6 +3,7 @@ import OrderForm from "../components/OrderForm";
 import "../clara.css";
 
 function CheckoutPage() {
+    // Prendo dal CartContext il carrello e tutte le funzioni per gestirlo
     const { cart, totalPrice, incrementQuantity, decrementQuantity, removeFromCart } = useCart();
 
     return (
@@ -16,16 +17,18 @@ function CheckoutPage() {
                 <div className="cart-summary">
                     <div className="cart-products">
                         {cart.map(item => (
-                            <div key={item.slug}>
+                            <div key={item.slug} className="cart-item">
+                                {/* Nome e immagine */}
                                 <p>{item.name}</p>
                                 <img src={item.image} alt={item.name}></img>
-                                {Number(item.discountedPrice || item.price).toFixed(2)} €
+                                <p>{item.discountedPrice?.toFixed(2) ?? item.price.toFixed(2)} €</p>
                                 <p>
                                     <button onClick={() => decrementQuantity(item.slug)}>-</button>
                                     <span>{item.quantity}</span>
                                     <button onClick={() => incrementQuantity(item.slug)}>+</button>
                                 </p>
-                                <p>{((item.discountedPrice ?? item.price ?? 0) * (item.quantity ?? 1)).toFixed(2)} €</p>
+
+                                {/* Bottone rimuovi prodotto */}
                                 <p>
                                     <button onClick={() => removeFromCart(item.slug)}>X</button>
                                 </p>
@@ -33,6 +36,7 @@ function CheckoutPage() {
                         ))}
                     </div>
 
+                    {/* Totale carrello */}
                     <p><strong>Totale: {totalPrice.toFixed(2)} €</strong></p>
                 </div>
             )}

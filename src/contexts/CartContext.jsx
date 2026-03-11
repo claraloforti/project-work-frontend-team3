@@ -5,10 +5,15 @@ const CartContext = createContext();
 function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
 
-    // Aggiunge un whisky al carrello (o incrementa se già presente)
+    // Funzione che aggiunge un whisky al carrello
     const addToCart = (whisky, quantity = 1) => {
         const alreadyInCart = cart.find(item => item.slug === whisky.slug);
-        const finalPrice = whisky.discountedPrice ?? whisky.price ?? 0;
+
+        // Calcolo del prezzo finale sempre corretto
+        const finalPrice = whisky.discount > 0
+            ? whisky.price - (whisky.price * whisky.discount / 100)
+            : whisky.price;
+
         if (alreadyInCart) {
             setCart(
                 cart.map(item =>
@@ -18,34 +23,34 @@ function CartProvider({ children }) {
                 )
             );
         } else {
-            setCart([...cart, { ...whisky, quantity, price: finalPrice, discountedPrice: whisky.discountedPrice ?? whisky.price }]);
+            setCart([
+                ...cart,
+                {
+                    id: whisky.id,
+                    slug: whisky.slug,
+                    name: whisky.name,
+                    image: whisky.image,
+                    quantity,
+                    unitary_price: finalPrice, // sempre salvato
+                }
+            ]);
         }
     };
 
-    // Rimuove un whisky dal carrello
     const removeFromCart = (slug) => {
         setCart(cart.filter(item => item.slug !== slug));
     };
 
-    // Aggiorna la quantità di un whisky
-    const updateQuantity = (slug, quantity) => {
-        setCart(
-            cart.map(item =>
-                item.slug === slug ? { ...item, quantity } : item
-            )
-        );
-    };
-
-    // Incrementa la quantità di un prodotto
     const incrementQuantity = (slug) => {
         setCart(
             cart.map(item =>
-                item.slug === slug ? { ...item, quantity: item.quantity + 1 } : item
+                item.slug === slug
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
             )
         );
     };
 
-    // Decrementa la quantità di un prodotto
     const decrementQuantity = (slug) => {
         setCart(
             cart.map(item =>
@@ -56,9 +61,8 @@ function CartProvider({ children }) {
         );
     };
 
-    // Calcolo totale dinamico del carrello considerando eventuale sconto
     const totalPrice = cart.reduce(
-        (sum, item) => sum + ((item.discountedPrice ?? item.price ?? 0) * (item.quantity ?? 1)),
+        (sum, item) => sum + item.unitary_price * item.quantity,
         0
     );
 
@@ -67,7 +71,6 @@ function CartProvider({ children }) {
             cart,
             addToCart,
             removeFromCart,
-            updateQuantity,
             incrementQuantity,
             decrementQuantity,
             totalPrice
@@ -77,7 +80,6 @@ function CartProvider({ children }) {
     );
 }
 
-// Hook custom per usare il cart context
 function useCart() {
     return useContext(CartContext);
 }
