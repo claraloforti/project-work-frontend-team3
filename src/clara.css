@@ -94,10 +94,11 @@
 }
 
 .cart-btn {
-    padding: 5px;
-    background-color: rgb(45, 45, 45);
+    padding: 8px;
+    background-color: #2d2d2d;
     color: white;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .whisky-page {
@@ -114,9 +115,10 @@
 
 .search-input {
     margin-bottom: 20px;
+    margin-right: 2px;
 }
 
-.search-input * {
+.search-wrapper * {
     font-size: 18px;
 }
 
