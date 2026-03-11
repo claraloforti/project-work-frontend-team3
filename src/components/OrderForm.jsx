@@ -31,6 +31,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
 
         setLoading(true);
 
+        // Payload ordine
         const orderPayload = {
             customer_name: customer.customer_name,
             customer_surname: customer.customer_surname,
@@ -41,7 +42,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
             whiskies: cart.map(item => ({
                 whisky_id: item.id,
                 quantity: item.quantity,
-                unitary_price: item.price
+                unitary_price: item.unitary_price
             }))
         };
 
