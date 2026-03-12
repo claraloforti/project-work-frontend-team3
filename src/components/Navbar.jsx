@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
 import "../clara.css";
+import { useCart } from "../contexts/CartContext";
 
 function Navbar() {
+
+    const { cart } = useCart();
+
+    // Somma tutte le quantità dei prodotti
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+
     return (
         <div className="navbar">
             <div className="container nav-links">
@@ -34,8 +42,13 @@ function Navbar() {
                     </Link>
 
                     {/* Carrello che porta alla CheckoutPage */}
-                    <Link to="/checkout">
+                    <Link to="/checkout" className="cart-link">
                         <i className="fa-solid fa-cart-shopping"></i>
+
+                        {/* Mostra il numero solo se > 0 */}
+                        {totalItems > 0 && (
+                            <span className="cart-count">{totalItems}</span>
+                        )}
                     </Link>
                 </div>
             </div>

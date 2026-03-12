@@ -58,6 +58,23 @@
     gap: 40px;
 }
 
+/* Quantità carrello */
+.cart-link {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: rgb(17, 104, 37);
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-weight: bold;
+}
+
 
 /* WHISKY CARD */
 
@@ -118,6 +135,18 @@
     padding: 6px;
 }
 
+.whisky-page {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.whisky-page h1 {
+    color: #eec461;
+    margin-bottom: 30px;
+}
+
+
+/* Bottone aggiungi al carrello */
 .add-to-cart-btn {
     padding: 8px;
     background-color: #2d2d2d;
@@ -133,16 +162,6 @@
 
 .add-to-cart-btn.added {
     background-color: #edcf6bad;
-}
-
-.whisky-page {
-    text-align: center;
-    margin: 40px auto;
-}
-
-.whisky-page h1 {
-    color: #eec461;
-    margin-bottom: 30px;
 }
 
 /* Gestisco layout prodotto non trovato */
