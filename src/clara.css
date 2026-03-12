@@ -430,6 +430,25 @@
     margin-top: 50px;
 }
 
+/* SUCCESS PAGE */
+.payment-page h1 {
+    color: #eec461;
+    margin-bottom: 50px;
+}
+
+.payment-page .back-btn {
+    margin-top: 50px;
+}
+
+.payment-page strong {
+    color: #eec461;
+    font-size: 1.1rem;
+}
+
+.payment-page p {
+    font-size: 18px;
+}
+
 
 /* FOOTER */
 

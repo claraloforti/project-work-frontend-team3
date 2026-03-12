@@ -46,25 +46,24 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
             }))
         };
 
-          axios.post("http://localhost:3000/api/products/orders", orderPayload)
-    .then(res => {
-        // --- IL TOCCO MAGICO ---
-        if (res.data.url) {
-            // Se il backend manda l'URL Stripe
-            window.location.href = res.data.url;
-        } else {
-            setSuccess(true);
-            onOrderComplete && onOrderComplete();
-        }
-    })
-    .catch(err => {
-        console.error("Errore durante l'invio dell'ordine:", err);
-        alert("Si è verificato un errore durante l'invio dell'ordine. Riprova più tardi.");
-    })
-    .finally(() => {
-        setLoading(false);
-    });
-}
+        axios.post("http://localhost:3000/api/products/orders", orderPayload)
+            .then(res => {
+                // Redirect alla pagina di checkout Stripe se il backend restituisce l'URL
+                if (res.data.url) {
+                    window.location.href = res.data.url;
+                } else {
+                    setSuccess(true);
+                    onOrderComplete && onOrderComplete();
+                }
+            })
+            .catch(err => {
+                console.error("Errore durante l'invio dell'ordine:", err);
+                alert("Si è verificato un errore durante l'invio dell'ordine. Riprova più tardi.");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }
 
     return (
         <form className="order-form" onSubmit={handleSubmit}>
@@ -106,7 +105,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                     required
                 />
                 <input
-                    type="tel"
+                    type="number"
                     name="customer_phone"
                     placeholder="Telefono"
                     value={customer.customer_phone}
@@ -151,7 +150,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                     required
                 />
                 <input
-                    type="tel"
+                    type="number"
                     name="billing_phone"
                     placeholder="Telefono"
                     value={customer.customer_phone}
@@ -164,7 +163,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
             <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
 
             <button type="submit" disabled={loading || cart.length === 0}>
-                {loading ? "Invio in corso..." : "Invia ordine"}
+                {loading ? "Invio in corso..." : "Completa l'ordine"}
             </button>
         </form>
     );
