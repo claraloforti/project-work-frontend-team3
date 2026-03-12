@@ -300,6 +300,7 @@
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
+    justify-content: space-around;
     gap: 40px;
 }
 
@@ -314,7 +315,7 @@
 }
 
 .cart-summary {
-    width: 50%;
+    width: calc((100% / 2) - 40px);
 }
 
 .cart-item {
@@ -374,12 +375,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: calc((100% / 2) - 40px);
 }
 
 .order-form * {
     margin: 1px;
     font-size: 20px;
-    width: 600px;
+    width: 100%;
+}
+
+.order-form input {
+    background-color: #00000045;
+    border: solid white 1px;
+    margin: 2px 0;
+    color: white;
 }
 
 .total-order-price {

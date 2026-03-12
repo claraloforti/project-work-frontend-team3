@@ -59,108 +59,106 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
     };
 
     return (
-        <div className="checkout-page">
-            <form className="order-form" onSubmit={handleSubmit}>
-                {success && <p className="success-msg">Ordine completato con successo!</p>}
+        <form className="order-form" onSubmit={handleSubmit}>
+            {success && <p className="success-msg">Ordine completato con successo!</p>}
 
-                {/* Dati per la spedizione */}
-                <div className="shipping-data">
-                    <h2>Dati per la spedizione</h2>
-                    <input
-                        type="text"
-                        name="customer_name"
-                        placeholder="Nome"
-                        value={customer.customer_name}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="customer_surname"
-                        placeholder="Cognome"
-                        value={customer.customer_surname}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="customer_email"
-                        placeholder="Email"
-                        value={customer.customer_email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="shipping_address"
-                        placeholder="Indirizzo spedizione"
-                        value={customer.shipping_address}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="tel"
-                        name="customer_phone"
-                        placeholder="Telefono"
-                        value={customer.customer_phone}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+            {/* Dati per la spedizione */}
+            <div className="shipping-data">
+                <h2>Dati per la spedizione</h2>
+                <input
+                    type="text"
+                    name="customer_name"
+                    placeholder="Nome"
+                    value={customer.customer_name}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="customer_surname"
+                    placeholder="Cognome"
+                    value={customer.customer_surname}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="email"
+                    name="customer_email"
+                    placeholder="Email"
+                    value={customer.customer_email}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="shipping_address"
+                    placeholder="Indirizzo spedizione"
+                    value={customer.shipping_address}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="tel"
+                    name="customer_phone"
+                    placeholder="Telefono"
+                    value={customer.customer_phone}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
 
-                {/* Dati per la fatturazione */}
-                <div className="billing-data">
-                    <h2>Dati per la fatturazione</h2>
-                    <input
-                        type="text"
-                        name="billing_name"
-                        placeholder="Nome"
-                        value={customer.customer_name}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="billing_surname"
-                        placeholder="Cognome"
-                        value={customer.customer_surname}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="email"
-                        name="billing_email"
-                        placeholder="Email"
-                        value={customer.customer_email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="text"
-                        name="billing_address"
-                        placeholder="Indirizzo fatturazione"
-                        value={customer.billing_address}
-                        onChange={handleChange}
-                        required
-                    />
-                    <input
-                        type="tel"
-                        name="billing_phone"
-                        placeholder="Telefono"
-                        value={customer.customer_phone}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
+            {/* Dati per la fatturazione */}
+            <div className="billing-data">
+                <h2>Dati per la fatturazione</h2>
+                <input
+                    type="text"
+                    name="billing_name"
+                    placeholder="Nome"
+                    value={customer.customer_name}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="billing_surname"
+                    placeholder="Cognome"
+                    value={customer.customer_surname}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="email"
+                    name="billing_email"
+                    placeholder="Email"
+                    value={customer.customer_email}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="billing_address"
+                    placeholder="Indirizzo fatturazione"
+                    value={customer.billing_address}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="tel"
+                    name="billing_phone"
+                    placeholder="Telefono"
+                    value={customer.customer_phone}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
 
-                {/* Totale ordine */}
-                <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
+            {/* Totale ordine */}
+            <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
 
-                <button type="submit" disabled={loading || cart.length === 0}>
-                    {loading ? "Invio in corso..." : "Invia ordine"}
-                </button>
-            </form>
-        </div>
+            <button type="submit" disabled={loading || cart.length === 0}>
+                {loading ? "Invio in corso..." : "Invia ordine"}
+            </button>
+        </form>
     );
 }
 
