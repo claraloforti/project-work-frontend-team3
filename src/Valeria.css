@@ -109,3 +109,29 @@
     color: #000;
 
 }
+
+
+/* NOT FOUND PAGE */
+.not-found-container{
+    color: #eec461;
+    margin: 0, auto;
+    text-align: center;
+}
+.not-found-container h1{
+    font-size: 5rem;
+}
+
+.not-found-container h2{
+    font-size: 3rem;
+}
+.not-found-container p{
+    font-size: 2rem;
+}
+.notf-btn{
+    background-color: #eec461;
+    padding: 10px;
+    margin: 20px;
+    font-size: 20px;
+   
+    
+}
