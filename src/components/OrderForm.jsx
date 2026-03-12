@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import "../clara.css";
 
-function OrderForm({ cart, totalPrice, onOrderComplete }) {
+function OrderForm({ cart, totalPrice }) {
     const [customer, setCustomer] = useState({
         customer_name: "",
         customer_surname: "",
@@ -54,7 +54,6 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                     window.location.href = res.data.url;
                 } else {
                     setSuccess(true);
-                    onOrderComplete && onOrderComplete();
                 }
             })
             .catch(err => {
@@ -106,12 +105,13 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                     required
                 />
                 <input
-                    type="number"
+                    type="tel"
                     name="customer_phone"
                     placeholder="Telefono"
                     value={customer.customer_phone}
                     onChange={handleChange}
                     required
+                    pattern="^\+?[0-9]{6,15}$"
                 />
             </div>
 
@@ -151,12 +151,13 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
                     required
                 />
                 <input
-                    type="number"
+                    type="tel"
                     name="billing_phone"
                     placeholder="Telefono"
                     value={customer.customer_phone}
                     onChange={handleChange}
                     required
+                    pattern="^\+?[0-9]{6,15}$"
                 />
             </div>
 
