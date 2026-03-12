@@ -41,13 +41,13 @@ function WhiskyDetailCard({ whisky }) {
                             <span className="discount-price">{finalPrice.toFixed(2)} €</span>
                         </div>
                     ) : (
-                        <span className="full-price-no-discount">{whisky.price} €</span>
+                        <span className="detail-full-price-no-discount">{whisky.price} €</span>
                     )
                 }
 
                 {/* Bottone aggiungi al carrello */}
                 <button
-                    className="cart-btn"
+                    className="add-to-cart-btn"
                     onClick={() => addToCart(whisky, 1)}
                 >
                     Aggiungi al carrello

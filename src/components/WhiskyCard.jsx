@@ -45,7 +45,7 @@ function WhiskyCard({ whisky }) {
                 {/* Bottone aggiungi al carrello */}
                 <div className="card-button">
                     <button
-                        className="cart-btn"
+                        className="add-to-cart-btn"
                         // Chiama la funzione addToCart dal CartContext
                         // Al click aggiunge il whisky al carrello
                         onClick={() => addToCart({

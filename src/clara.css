@@ -89,13 +89,19 @@
     margin: 20px;
 }
 
-.full-price-no-discount {
+.full-price-no-discount,
+.detail-full-price-no-discount {
     color: white;
     font-size: 22px;
     border: solid black 2px;
     padding: 6px;
-    margin: 20px;
+    margin: 20px 0;
     display: inline-block;
+}
+
+.detail-full-price-no-discount {
+    width: 200px;
+    text-align: center;
 }
 
 .full-price {
@@ -112,7 +118,7 @@
     padding: 6px;
 }
 
-.cart-btn {
+.add-to-cart-btn {
     padding: 8px;
     background-color: #2d2d2d;
     color: white;
@@ -341,6 +347,7 @@
 
 
 /* ORDER FORM */
+
 .order-form {
     display: flex;
     flex-direction: column;
