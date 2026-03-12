@@ -46,17 +46,25 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
             }))
         };
 
-        axios.post("http://localhost:3000/api/products/orders", orderPayload)
-            .then(res => {
-                setSuccess(true);
-                onOrderComplete && onOrderComplete(); // callback se serve in CheckoutPage
-            })
-            .catch(err => {
-                console.error(err);
-                alert("Errore nell'invio dell'ordine");
-            })
-            .finally(() => setLoading(false));
-    };
+          axios.post("http://localhost:3000/api/products/orders", orderPayload)
+    .then(res => {
+        // --- IL TOCCO MAGICO ---
+        if (res.data.url) {
+            // Se il backend manda l'URL Stripe
+            window.location.href = res.data.url;
+        } else {
+            setSuccess(true);
+            onOrderComplete && onOrderComplete();
+        }
+    })
+    .catch(err => {
+        console.error("Errore durante l'invio dell'ordine:", err);
+        alert("Si è verificato un errore durante l'invio dell'ordine. Riprova più tardi.");
+    })
+    .finally(() => {
+        setLoading(false);
+    });
+}
 
     return (
         <form className="order-form" onSubmit={handleSubmit}>

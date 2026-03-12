@@ -8,6 +8,7 @@ import WhiskyDetailPage from "./pages/WhiskyDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import WishlistPage from "./pages/WishlistPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   return (
@@ -25,10 +26,13 @@ function App() {
 
               <Route path="/checkout" element={<CheckoutPage />} />
 
+              <Route path="/success" element={<SuccessPage />} />
+
               <Route path="/wishlist" element={<WishlistPage />} />
 
               <Route path="*" element={<NotFoundPage />} />
 
+            
             </Route>
           </Routes>
         </BrowserRouter>
