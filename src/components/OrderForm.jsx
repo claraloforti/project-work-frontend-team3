@@ -31,7 +31,7 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
 
         setLoading(true);
 
-        // Payload ordine
+        // Payload con dati dell'ordine
         const orderPayload = {
             customer_name: customer.customer_name,
             customer_surname: customer.customer_surname,
@@ -46,9 +46,10 @@ function OrderForm({ cart, totalPrice, onOrderComplete }) {
             }))
         };
 
+        // Invio dati al BE
         axios.post("http://localhost:3000/api/products/orders", orderPayload)
             .then(res => {
-                // Redirect alla pagina di checkout Stripe se il backend restituisce l'URL
+                // Reindirizza l’utente alla pagina di pagamento Stripe se il backend restituisce l’URL della sessione
                 if (res.data.url) {
                     window.location.href = res.data.url;
                 } else {
