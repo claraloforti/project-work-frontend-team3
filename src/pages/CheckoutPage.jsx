@@ -39,7 +39,7 @@ function CheckoutPage() {
                                         <button
                                             className="decrement-btn"
                                             onClick={() => decrementQuantity(item.id)}><i class="fa-solid fa-minus"></i></button>
-                                        <span>{item.quantity}</span>
+                                        <span className="item-quantity">{item.quantity}</span>
                                         <button
                                             className="increment-btn"
                                             onClick={() => incrementQuantity(item.id)}><i class="fa-solid fa-plus"></i></button>
@@ -57,7 +57,7 @@ function CheckoutPage() {
                     </div>
 
                     {/* Totale carrello */}
-                    <p><strong>Totale: {totalPrice.toFixed(2)} €</strong></p>
+                    <p><strong>Totale carrello: {totalPrice.toFixed(2)} €</strong></p>
                 </div>
             )}
 

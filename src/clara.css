@@ -305,35 +305,52 @@
 }
 
 .checkout-page img {
-    width: 300px;
+    width: 150px;
 }
 
-.cart-product-name {
-    font-size: 20px;
+.cart-summary {
+    width: 50%;
 }
+
+.cart-item {
+    border: solid rgb(237, 207, 107) 2px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #eec46148;
+    margin-bottom: 5px;
+}
+
+.cart-product-info {
+    font-size: 0.9rem;
+    text-align: left;
+}
+
 
 .cart-products button {
-    padding: 10px;
-    margin: 10px;
+    padding: 3px;
+    margin-bottom: 10px;
 }
 
 .cart-full-price {
     text-decoration: line-through;
     color: rgb(162, 162, 162);
     margin-right: 10px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .cart-unitary-price {
     margin: 20px 0;
 }
 
-.cart-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 80px;
-    gap: 30px;
-    margin-left: 25%;
+.cart-item .whisky-price {
+    margin: 14px 0;
+}
+
+.item-quantity {
+    font-size: 0.8rem;
+    margin: 8px;
 }
 
 .decrement-btn,
