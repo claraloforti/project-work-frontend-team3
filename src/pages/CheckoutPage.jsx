@@ -39,11 +39,11 @@ function CheckoutPage() {
                                         <p>
                                             <button
                                                 className="decrement-btn"
-                                                onClick={() => decrementQuantity(item.id)}><i class="fa-solid fa-minus"></i></button>
+                                                onClick={() => decrementQuantity(item.id)}><i className="fa-solid fa-minus"></i></button>
                                             <span className="item-quantity">{item.quantity}</span>
                                             <button
                                                 className="increment-btn"
-                                                onClick={() => incrementQuantity(item.id)}><i class="fa-solid fa-plus"></i></button>
+                                                onClick={() => incrementQuantity(item.id)}><i className="fa-solid fa-plus"></i></button>
                                         </p>
 
                                         {/* Bottone rimuovi prodotto dal carrello */}
