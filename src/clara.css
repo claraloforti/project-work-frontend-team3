@@ -127,6 +127,14 @@
     width: 200px;
 }
 
+.add-to-cart-btn:hover {
+    transform: scale(1.1);
+}
+
+.add-to-cart-btn.added {
+    background-color: #edcf6bad;
+}
+
 .whisky-page {
     text-align: center;
     margin: 40px auto;

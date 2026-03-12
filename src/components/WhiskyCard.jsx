@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom"
 import { useCart } from "../contexts/CartContext"
 import { useWishlist } from "../contexts/WishlistContext"
+import { useState } from "react"
 
 function WhiskyCard({ whisky }) {
     const { addToCart } = useCart();
     const { wishlist, toggleWishlist } = useWishlist();
+    const [added, setAdded] = useState(false);
 
     // Controllo se il whisky è già nei preferiti
     const isFavorite = wishlist.some(item => item.slug === whisky.slug)
@@ -45,19 +47,25 @@ function WhiskyCard({ whisky }) {
                 {/* Bottone aggiungi al carrello */}
                 <div className="card-button">
                     <button
-                        className="add-to-cart-btn"
-                        // Chiama la funzione addToCart dal CartContext
-                        // Al click aggiunge il whisky al carrello
-                        onClick={() => addToCart({
-                            id: whisky.id,
-                            slug: whisky.slug,
-                            name: whisky.name,
-                            image: whisky.image,
-                            price: whisky.price,
-                            unitary_price: whisky.unitary_price
-                        }, 1)}
+                        className={`add-to-cart-btn ${added ? "added" : ""}`}
+                        onClick={() => {
+                            addToCart({
+                                id: whisky.id,
+                                slug: whisky.slug,
+                                name: whisky.name,
+                                image: whisky.image,
+                                price: whisky.price,
+                                unitary_price: whisky.unitary_price
+                            }, 1);
+
+                            setAdded(true);
+
+                            setTimeout(() => {
+                                setAdded(false);
+                            }, 2000);
+                        }}
                     >
-                        Aggiungi al carrello
+                        {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
                     </button>
                 </div>
             </div>
