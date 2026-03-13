@@ -139,3 +139,38 @@
 
 
 }
+
+
+/* WISHLIST STYLE */
+.wishlist-header, .empty-state {
+    color: #eec461;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.wishlist-card{
+
+
+}
+.wishlist-img{
+    max-width: 400px;
+}
+.wishlist-details{
+    color: #eec461;
+    font-size: 1rem;
+}
+
+.cart-button, .remove-button{
+    margin: 20px;
+    padding: 20px;
+    font-size: 1rem;
+    background-color: #eec461;
+    cursor: pointer;
+}
+.btn-explore{
+     margin: 20px;
+    padding: 20px;
+    font-size: 1rem;
+    background-color: #eec461;
+    cursor: pointer;
+}
