@@ -295,6 +295,10 @@
     padding: 10px;
 }
 
+.detail-info .whisky-price {
+    margin: 20px 0;
+}
+
 /* CUORE AGGIUNGI AI PREFERITI */
 
 .whisky-img-wrapper,
