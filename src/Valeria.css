@@ -101,37 +101,41 @@
 .whisky-img:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transform: scale(1.05);
-
-
 }
 
-.full-price {
-    color: #000;
+.whisky-link {
+    text-decoration: none;
+}
 
+.whisky-price {
+    margin: 20px 0;
 }
 
 
 /* NOT FOUND PAGE */
-.not-found-container{
+.not-found-container {
     color: #eec461;
     margin: 0, auto;
     text-align: center;
 }
-.not-found-container h1{
+
+.not-found-container h1 {
     font-size: 5rem;
 }
 
-.not-found-container h2{
+.not-found-container h2 {
     font-size: 3rem;
 }
-.not-found-container p{
+
+.not-found-container p {
     font-size: 2rem;
 }
-.notf-btn{
+
+.notf-btn {
     background-color: #eec461;
     padding: 10px;
     margin: 20px;
     font-size: 20px;
-   
-    
+
+
 }
