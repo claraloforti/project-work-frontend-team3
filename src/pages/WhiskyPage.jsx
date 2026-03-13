@@ -53,36 +53,35 @@ function WhiskyPage() {
             .finally(() => setLoading(false));
     };
 
-    // FILTRI AUTOMATICI (categoria, promo, sort) con debounce
     // FILTRI AUTOMATICI (categoria, promo, sort)
     useEffect(() => {
-        if (!hasSearched) return;
-        // Non uscire se tutti i filtri sono vuoti, vogliamo comunque fare fetch per searchTerm
-        const timer = setTimeout(() => {
-            const params = {
-                searchTerm: searchTerm || undefined,      // mantieni sempre il termine di ricerca
-                category: categoryFilter || undefined,
-                promo: promoFilter ? "true" : undefined,
-                sort: sortOption || undefined,
-            };
+        // Se non ci sono filtri e la barra di ricerca è vuota, svuota i risultati
+        if (!categoryFilter && !promoFilter && !sortOption && !searchTerm) {
+            setWhiskies([]);
+            return;
+        }
 
+        const timer = setTimeout(() => {
             setLoading(true);
 
-            axios.get("http://localhost:3000/api/products", { params })
-                .then(res => {
-                    setWhiskies(res.data);
-                    setHasSearched(true);
-                })
+            axios.get("http://localhost:3000/api/products", {
+                params: {
+                    searchTerm: searchTerm || undefined,
+                    category: categoryFilter || undefined,
+                    promo: promoFilter ? "true" : undefined,
+                    sort: sortOption || undefined,
+                },
+            })
+                .then(res => setWhiskies(res.data))
                 .catch(err => {
                     console.error("Errore nel caricamento prodotti:", err);
                     setWhiskies([]);
-                    setHasSearched(true);
                 })
                 .finally(() => setLoading(false));
-        }, 300); // piccolo debounce
+        }, 300); // debounce
 
         return () => clearTimeout(timer);
-    }, [categoryFilter, promoFilter, sortOption, searchTerm]);
+    }, [categoryFilter, promoFilter, sortOption]);
 
     return (
         <div className="whisky-page container">
