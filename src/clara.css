@@ -219,6 +219,11 @@
     gap: 8px;
 }
 
+.reset-btn {
+    margin: 30px;
+    padding: 6px;
+}
+
 /* TOGGLE VISUALIZZAZIONE CARD */
 
 .view-toggle {

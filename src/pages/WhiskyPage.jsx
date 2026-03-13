@@ -12,6 +12,7 @@ function WhiskyPage() {
     const [whiskies, setWhiskies] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [hasSearched, setHasSearched] = useState(false);
 
     // Carica le categorie dal BE
     useEffect(() => {
@@ -22,12 +23,15 @@ function WhiskyPage() {
 
     // Ricerca prodotti
     const handleSearch = () => {
+        setLoading(true);
+
+        // Se tutto è vuoto, svuota i risultati
         if (!searchTerm && !categoryFilter && !promoFilter && !sortOption) {
             setWhiskies([]);
+            setHasSearched(false);
+            setLoading(false);
             return;
         }
-
-        setLoading(true);
 
         const params = {
             searchTerm: searchTerm || undefined,
@@ -37,25 +41,67 @@ function WhiskyPage() {
         };
 
         axios.get("http://localhost:3000/api/products", { params })
-            .then(res => setWhiskies(res.data))
+            .then(res => {
+                setWhiskies(res.data);
+                setHasSearched(true);
+            })
             .catch(err => {
                 console.error("Errore nel caricamento prodotti:", err);
                 setWhiskies([]);
+                setHasSearched(true);
             })
             .finally(() => setLoading(false));
     };
+
+    // FILTRI AUTOMATICI (categoria, promo, sort) con debounce
+    // FILTRI AUTOMATICI (categoria, promo, sort)
+    useEffect(() => {
+        if (!hasSearched) return;
+        // Non uscire se tutti i filtri sono vuoti, vogliamo comunque fare fetch per searchTerm
+        const timer = setTimeout(() => {
+            const params = {
+                searchTerm: searchTerm || undefined,      // mantieni sempre il termine di ricerca
+                category: categoryFilter || undefined,
+                promo: promoFilter ? "true" : undefined,
+                sort: sortOption || undefined,
+            };
+
+            setLoading(true);
+
+            axios.get("http://localhost:3000/api/products", { params })
+                .then(res => {
+                    setWhiskies(res.data);
+                    setHasSearched(true);
+                })
+                .catch(err => {
+                    console.error("Errore nel caricamento prodotti:", err);
+                    setWhiskies([]);
+                    setHasSearched(true);
+                })
+                .finally(() => setLoading(false));
+        }, 300); // piccolo debounce
+
+        return () => clearTimeout(timer);
+    }, [categoryFilter, promoFilter, sortOption, searchTerm]);
 
     return (
         <div className="whisky-page container">
             <h1>La nostra collezione</h1>
 
-            {/* Barra ricerca + Bottone Cerca */}
+            {/* Barra ricerca + Bottone cerca */}
+            {/* Bottone cerca funziona anche tramite invio dalla tastiera */}
             <div className="search-wrapper">
                 <input
                     type="text"
                     placeholder="Cerca..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={(e) => {
+                        setSearchTerm(e.target.value);
+                        setHasSearched(false);
+                    }}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") handleSearch();
+                    }}
                     className="search-input"
                 />
                 <button
@@ -107,6 +153,23 @@ function WhiskyPage() {
                 </select>
             </div>
 
+            {/* Pulsante Reset Filtri */}
+            <div className="reset-filters">
+                <button
+                    onClick={() => {
+                        setSearchTerm("");
+                        setCategoryFilter("");
+                        setPromoFilter(false);
+                        setSortOption("");
+                        setWhiskies([]);
+                        setHasSearched(false);
+                    }}
+                    className="reset-btn"
+                >
+                    Reset Filtri
+                </button>
+            </div>
+
             {/* Toggle griglia/lista */}
             <div className="view-toggle">
                 <i className="fa-solid fa-grip" onClick={() => setViewMode("grid")}></i>
@@ -116,7 +179,14 @@ function WhiskyPage() {
             {/* Lista prodotti */}
             {loading && <p>Caricamento...</p>}
             <div className={`cards-container ${viewMode}`}>
-                {!loading && whiskies.length === 0 && <p>Avvia la ricerca per vedere i prodotti.</p>}
+                {/* Messaggio iniziale */}
+                {!loading && !hasSearched && whiskies.length === 0 && (
+                    <p>Avvia la ricerca per vedere i prodotti.</p>
+                )}
+                {/* Nessun prodotto trovato: solo se hai cercato e risultati vuoti */}
+                {!loading && hasSearched && whiskies.length === 0 && (
+                    <p>Nessun prodotto trovato.</p>
+                )}
                 {whiskies.map((w) => (
                     <WhiskyCard key={w.slug} whisky={w} />
                 ))}
