@@ -33,7 +33,6 @@ function WhiskyCard({ whisky }) {
                 </Link>
                 <p>{whisky.category}</p>
                 <p>{whisky.description}</p>
-                <p>{whisky.age} YO</p>
                 {/* Prezzo */}
                 {whisky.discount > 0 ? (
                     <div className="whisky-price">

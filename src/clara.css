@@ -102,6 +102,10 @@
     color: white;
 }
 
+.whisky-link h3 {
+    margin-bottom: 5px;
+}
+
 .whisky-price {
     margin: 20px;
 }
