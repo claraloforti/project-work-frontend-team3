@@ -14,7 +14,6 @@ function WishlistPage() {
 
             {wishlist.length === 0 ? (
                 <div className="empty-state">
-                    <p>La tua wishlist al momento è vuota.</p>
                     <Link to={"/"}>
                         <button className="btn-explore">Esplora la nostra selezione</button>
                     </Link>
