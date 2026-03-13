@@ -4,7 +4,7 @@ import "../clara.css";
 
 function CheckoutPage() {
     // Prendo dal CartContext il carrello e tutte le funzioni per gestirlo
-    const { cart, totalPrice, incrementQuantity, decrementQuantity, removeFromCart } = useCart();
+    const { cart, totalPrice, incrementQuantity, decrementQuantity, removeFromCart, clearCart } = useCart();
 
     return (
         <>
@@ -16,6 +16,12 @@ function CheckoutPage() {
 
                 {cart.length > 0 && (
                     <div className="cart-summary">
+                        {/* Bottone svuota carrello */}
+                        {cart.length > 0 && (
+                            <button className="clear-cart-btn" onClick={clearCart}>
+                                Svuota carrello
+                            </button>
+                        )}
                         <div className="cart-products">
                             {cart.map(item => (
                                 <div key={item.slug} className="cart-item">

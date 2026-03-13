@@ -409,6 +409,11 @@
     background-color: rgb(237, 207, 107);
 }
 
+.clear-cart-btn {
+    margin-bottom: 20px;
+    padding: 7px;
+}
+
 
 /* ORDER FORM */
 

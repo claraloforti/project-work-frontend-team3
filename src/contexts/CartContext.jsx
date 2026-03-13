@@ -55,6 +55,11 @@ function CartProvider({ children }) {
         );
     };
 
+    // Funzione per svuotare il carrello
+    const clearCart = () => {
+        setCart([]);
+    };
+
     const totalPrice = cart.reduce(
         (sum, item) => sum + item.unitary_price * item.quantity,
         0
@@ -67,6 +72,7 @@ function CartProvider({ children }) {
             removeFromCart,
             incrementQuantity,
             decrementQuantity,
+            clearCart,
             totalPrice
         }}>
             {children}
