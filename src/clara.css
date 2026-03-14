@@ -543,3 +543,52 @@ footer {
     height: 200px;
     background-color: rgba(255, 255, 255, 0.321);
 }
+
+
+
+
+/* RESPONSIVE */
+
+
+/* Responsive Tablet */
+
+@media screen and (max-width:768px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+/* Responsive Mobile */
+
+@media screen and (max-width:576px) {
+    .container {
+        max-width: 500px;
+    }
+
+    /* NAVBAR */
+    .logo {
+        position: static;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .logo-img {
+        position: static;
+        width: 200px;
+        pointer-events: none;
+        transform: translateX(0%);
+    }
+
+    .home {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        height: 150px;
+    }
+
+    .navbar .fa-solid {
+        font-size: 16px;
+    }
+}
