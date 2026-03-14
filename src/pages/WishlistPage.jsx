@@ -54,7 +54,7 @@ function WishlistPage() {
                                                 }, 1);
 
                                                 setAddedSlug(whisky.slug);
-                                                setTimeout(() => setAdded(false), 2000);
+                                                setTimeout(() => setAddedSlug(null), 2000);
                                             }}
                                         >
                                             {addedSlug === whisky.slug ? "Aggiunto ✓" : "Aggiungi al carrello"}
