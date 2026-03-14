@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import "../clara.css";
 import { useCart } from "../contexts/CartContext";
+import { useWishlist } from "../contexts/WishlistContext";
 
 function Navbar() {
 
     const { cart } = useCart();
+    const { wishlist } = useWishlist();
 
     // Somma tutte le quantità dei prodotti
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalWishlist = wishlist.length;
 
 
     return (
@@ -37,8 +40,12 @@ function Navbar() {
                     </Link>
 
                     {/* Cuore che porta alla WishListPage */}
-                    <Link to="/wishlist">
+                    <Link to="/wishlist" className="wishlist-link">
                         <i className="fa-solid fa-heart"></i>
+                        {/* Mostra il numero solo se > 0 */}
+                        {totalWishlist > 0 && (
+                            <span className="wishlist-count">{totalWishlist}</span>
+                        )}
                     </Link>
 
                     {/* Carrello che porta alla CheckoutPage */}

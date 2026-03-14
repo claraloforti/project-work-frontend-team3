@@ -58,6 +58,23 @@
     gap: 40px;
 }
 
+/* Quantità preferiti */
+.wishlist-link {
+    position: relative;
+}
+
+.wishlist-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: rgb(232, 2, 2);
+    color: white;
+    font-size: 12px;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-weight: bold;
+}
+
 /* Quantità carrello */
 .cart-link {
     position: relative;
@@ -168,7 +185,7 @@
 
 .whisky-img-wrapper i.favorited,
 .detail-img-wrapper i.favorited {
-    color: red;
+    color: rgb(232, 2, 2);
     cursor: pointer;
     transform: scale(1.05);
 }
