@@ -149,6 +149,29 @@
     margin-bottom: 30px;
 }
 
+/* Cuore aggiungi ai preferiti */
+.whisky-img-wrapper,
+.detail-img-wrapper {
+    position: relative;
+}
+
+.whisky-img-wrapper i,
+.detail-img-wrapper i {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.29);
+    font-size: 32px;
+    left: 85%;
+    top: 8%;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.whisky-img-wrapper i.favorited,
+.detail-img-wrapper i.favorited {
+    color: red;
+    cursor: pointer;
+    transform: scale(1.05);
+}
 
 /* Bottone aggiungi al carrello */
 .add-to-cart-btn {
@@ -309,28 +332,6 @@
     margin: 20px 0;
 }
 
-/* CUORE AGGIUNGI AI PREFERITI */
-
-.whisky-img-wrapper,
-.detail-img-wrapper {
-    position: relative;
-}
-
-.whisky-img-wrapper i,
-.detail-img-wrapper i {
-    position: absolute;
-    color: rgba(0, 0, 0, 0.29);
-    font-size: 32px;
-    left: 85%;
-    top: 8%;
-    cursor: pointer;
-}
-
-.whisky-img-wrapper i.favorited,
-.detail-img-wrapper i.favorited {
-    color: red;
-    cursor: pointer;
-}
 
 
 /* CHECKOUT PAGE */
@@ -498,6 +499,7 @@ form button {
 
 
 /* SUCCESS PAGE */
+
 .payment-page h1 {
     color: #eec461;
     margin-bottom: 50px;
@@ -515,6 +517,7 @@ form button {
 .payment-page p {
     font-size: 18px;
 }
+
 
 
 /* FOOTER */
