@@ -8,6 +8,7 @@ function WishlistPage() {
     const { wishlist, toggleWishlist } = useWishlist();
     const { addToCart } = useCart();
     const [added, setAdded] = useState(false);
+    const [addedSlug, setAddedSlug] = useState(null);
 
     return (
         <div className="wishlist-container">
@@ -41,7 +42,7 @@ function WishlistPage() {
                                     <div className="wishlist-actions">
                                         {/* Bottone Aggiungi al carrello */}
                                         <button
-                                            className={`add-to-cart-btn ${added ? "added" : ""}`}
+                                            className={`add-to-cart-btn ${addedSlug === whisky.slug ? "added" : ""}`}
                                             onClick={() => {
                                                 addToCart({
                                                     id: whisky.id,
@@ -52,11 +53,11 @@ function WishlistPage() {
                                                     unitary_price: whisky.unitary_price
                                                 }, 1);
 
-                                                setAdded(true);
+                                                setAddedSlug(whisky.slug);
                                                 setTimeout(() => setAdded(false), 2000);
                                             }}
                                         >
-                                            {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
+                                            {addedSlug === whisky.slug ? "Aggiunto ✓" : "Aggiungi al carrello"}
                                         </button>
 
                                         {/* Bottone rimuovi */}
