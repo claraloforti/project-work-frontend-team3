@@ -1,9 +1,13 @@
 import { useWishlist } from "../contexts/WishlistContext";
+import { useCart } from "../contexts/CartContext";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import '../Valeria.css'
 
 function WishlistPage() {
     const { wishlist, toggleWishlist } = useWishlist();
+    const { addToCart } = useCart();
+    const [added, setAdded] = useState(false);
 
     return (
         <div className="wishlist-container">
@@ -20,34 +24,53 @@ function WishlistPage() {
                 </div>
             ) : (
                 <div className="wishlist-list">
-                    {wishlist.map((whisky) => (
-                        <div key={whisky.slug} className="wishlist-card">
-                            <div className="wishlist-image-wrapper">
-                                <img
-                                    src={whisky.image}
-                                    alt={whisky.name}
-                                    className="wishlist-img"
-                                />
-                            </div>
+                    {wishlist.map((whisky) => {
 
-                            <div className="wishlist-details">
-                                <h3>{whisky.name}</h3>
-                                <div className="wishlist-actions">
-                                    <button
-                                        className="cart-button">
-                                        Aggiungi al carrello
-                                    </button>
+                        return (
+                            <div key={whisky.slug} className="wishlist-card">
+                                <div className="wishlist-image-wrapper">
+                                    <img
+                                        src={whisky.image}
+                                        alt={whisky.name}
+                                        className="wishlist-img"
+                                    />
+                                </div>
 
-                                    <button
-                                        className="remove-button"
-                                        onClick={() => toggleWishlist(whisky)}
-                                    >
-                                        Rimuovi
-                                    </button>
+                                <div className="wishlist-details">
+                                    <h3>{whisky.name}</h3>
+                                    <div className="wishlist-actions">
+                                        {/* Bottone Aggiungi al carrello */}
+                                        <button
+                                            className={`add-to-cart-btn ${added ? "added" : ""}`}
+                                            onClick={() => {
+                                                addToCart({
+                                                    id: whisky.id,
+                                                    slug: whisky.slug,
+                                                    name: whisky.name,
+                                                    image: whisky.image,
+                                                    price: whisky.price,
+                                                    unitary_price: whisky.unitary_price
+                                                }, 1);
+
+                                                setAdded(true);
+                                                setTimeout(() => setAdded(false), 2000);
+                                            }}
+                                        >
+                                            {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
+                                        </button>
+
+                                        {/* Bottone rimuovi */}
+                                        <button
+                                            className="remove-button"
+                                            onClick={() => toggleWishlist(whisky)}
+                                        >
+                                            Rimuovi
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             )}
         </div>
