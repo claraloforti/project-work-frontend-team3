@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import WhiskyCard from "../components/WhiskyCard.jsx";
 import "../clara.css";
 
 function WhiskyPage() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [categoryFilter, setCategoryFilter] = useState("");
-    const [promoFilter, setPromoFilter] = useState(false);
-    const [sortOption, setSortOption] = useState("");
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchTerm, setSearchTerm] = useState(searchParams.get("search") || "");
+    const [categoryFilter, setCategoryFilter] = useState(searchParams.get("category") || "");
+    const [promoFilter, setPromoFilter] = useState(searchParams.get("promo") === "true");
+    const [sortOption, setSortOption] = useState(searchParams.get("sort") || "");
     const [viewMode, setViewMode] = useState("grid");
     const [whiskies, setWhiskies] = useState([]);
     const [categories, setCategories] = useState([]);
@@ -40,6 +42,14 @@ function WhiskyPage() {
             sort: sortOption || undefined,
         };
 
+        // Aggiorna URL con i parametri di ricerca
+        setSearchParams({
+            search: searchTerm || "",
+            category: categoryFilter || "",
+            promo: promoFilter ? "true" : "",
+            sort: sortOption || ""
+        });
+
         axios.get("http://localhost:3000/api/products", { params })
             .then(res => {
                 setWhiskies(res.data);
@@ -63,6 +73,14 @@ function WhiskyPage() {
 
         const timer = setTimeout(() => {
             setLoading(true);
+
+            // Aggiorna URL quando cambiano i filtri
+            setSearchParams({
+                search: searchTerm || "",
+                category: categoryFilter || "",
+                promo: promoFilter ? "true" : "",
+                sort: sortOption || ""
+            });
 
             axios.get("http://localhost:3000/api/products", {
                 params: {
