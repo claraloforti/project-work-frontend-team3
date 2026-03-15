@@ -16,7 +16,6 @@ function WishlistProvider({ children }) {
     const toggleWishlist = (whisky) => {
         const exists = wishlist.find(item => item.slug === whisky.slug);
         if (exists) {
-            // invece di setWishlist(wishlist.filter(...))
             setWishlist(prev => prev.filter(item => item.slug !== whisky.slug));
         } else {
             setWishlist([...wishlist, whisky]);
