@@ -7,7 +7,6 @@ import '../Valeria.css'
 function WishlistPage() {
     const { wishlist, toggleWishlist } = useWishlist();
     const { addToCart } = useCart();
-    const [added, setAdded] = useState(false);
     const [addedSlug, setAddedSlug] = useState(null);
 
     return (
