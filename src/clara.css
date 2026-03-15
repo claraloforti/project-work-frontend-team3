@@ -1,7 +1,9 @@
 /* Container layout */
 .container {
     margin: 0 auto;
-    width: 1200px;
+    max-width: 1200px;
+    padding: 0 20px;
+    width: 90%;
 }
 
 .container a {
@@ -19,27 +21,6 @@
     z-index: 100;
 }
 
-.logo {
-    width: calc(100% / 3);
-}
-
-.logo-img {
-    width: 340px;
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-
-    pointer-events: none;
-    /* Impedisce che l’area trasparente del logo blocchi i clic sugli elementi sottostanti */
-}
-
-.home {
-    color: rgb(237, 207, 107);
-    font-size: 20px;
-}
-
 .nav-links {
     height: 200px;
     display: flex;
@@ -47,15 +28,35 @@
     justify-content: space-between;
 }
 
+.left-links,
+.logo,
+.nav-icons {
+    display: flex;
+    width: calc(100% / 3);
+    justify-content: center;
+}
+
+.logo-img {
+    width: 200px;
+
+    pointer-events: none;
+    /* Impedisce che l’area trasparente del logo blocchi i clic sugli elementi sottostanti */
+}
+
+.home-link,
+.whisky-link {
+    color: rgb(237, 207, 107);
+    font-size: 20px;
+}
+
+.left-links,
+.nav-icons {
+    gap: 40px;
+}
+
 .navbar .fa-solid {
     color: rgb(237, 207, 107);
     font-size: 22px;
-}
-
-.nav-icons {
-    display: flex;
-    align-items: center;
-    gap: 40px;
 }
 
 /* Quantità preferiti */
@@ -550,17 +551,9 @@ footer {
 
 /* RESPONSIVE */
 
-/* Responsive Desktop */
-
-@media screen and (max-width:1200px) {
-    .container {
-        max-width: 90%;
-    }
-}
-
 /* Responsive Tablet */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1024px) {
     .container {
         max-width: 90%;
     }
@@ -568,28 +561,24 @@ footer {
 
 /* Responsive Mobile */
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:768px) {
     .container {
         max-width: 90%;
     }
 
     /* NAVBAR */
 
-    .logo-img {
-        position: static;
-        width: 150px;
-        transform: translateX(0%);
-    }
-
-    .home {
+    /*.home {
         font-size: 16px;
     }
 
     .nav-links {
         height: 150px;
+        display: flex;
+        justify-content: center;
     }
 
     .navbar .fa-solid {
         font-size: 16px;
-    }
+    }*/
 }

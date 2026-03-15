@@ -17,10 +17,12 @@ function Navbar() {
         <div className="navbar">
             <div className="container nav-links">
                 {/* Link principali */}
-                <Link to="/" className="home"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>HOME</Link>
-                <Link to="/whisky" className="home"
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>WHISKY</Link>
+                <div className="left-links">
+                    <Link to="/" className="home-link"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>HOME</Link>
+                    <Link to="/whisky" className="whisky-link"
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>WHISKY</Link>
+                </div>
 
                 {/* Logo */}
                 <div className="logo">
