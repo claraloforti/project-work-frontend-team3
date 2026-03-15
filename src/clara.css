@@ -568,17 +568,12 @@ footer {
 
     /* NAVBAR */
 
-    /*.home {
+    .home-link,
+    .whisky-link {
         font-size: 16px;
-    }
-
-    .nav-links {
-        height: 150px;
-        display: flex;
-        justify-content: center;
     }
 
     .navbar .fa-solid {
         font-size: 16px;
-    }*/
+    }
 }
