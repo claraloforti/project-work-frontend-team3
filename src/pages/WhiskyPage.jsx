@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 import WhiskyCard from "../components/WhiskyCard.jsx";
-import "../clara.css";
+
 
 function WhiskyPage() {
     const [searchParams, setSearchParams] = useSearchParams();
