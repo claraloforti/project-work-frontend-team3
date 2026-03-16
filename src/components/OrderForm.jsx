@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 
-function OrderForm({ cart, totalPrice }) {
+function OrderForm({ cart, finalTotal }) {
     const [customer, setCustomer] = useState({
         customer_name: "",
         customer_surname: "",
@@ -164,7 +164,7 @@ function OrderForm({ cart, totalPrice }) {
             )}
 
             {/* Totale ordine */}
-            <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
+            <p className="total-order-price"><strong>Totale ordine: {finalTotal.toFixed(2)} €</strong></p>
 
             {/* Checkbox termini e condizioni */}
             <div className="terms-checkbox">

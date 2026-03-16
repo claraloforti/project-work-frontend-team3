@@ -102,7 +102,7 @@ function CheckoutPage() {
                 )}
 
                 {/* ORDER FORM */}
-                <OrderForm cart={cart} totalPrice={totalPrice} />
+                <OrderForm cart={cart} finalTotal={finalTotal} />
             </div>
         </>
     );
