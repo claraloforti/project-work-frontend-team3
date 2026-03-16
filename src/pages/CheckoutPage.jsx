@@ -4,7 +4,17 @@ import OrderForm from "../components/OrderForm";
 
 function CheckoutPage() {
     // Prendo dal CartContext il carrello e tutte le funzioni per gestirlo
-    const { cart, totalPrice, incrementQuantity, decrementQuantity, removeFromCart, clearCart } = useCart();
+    const {
+        cart,
+        totalPrice,
+        shippingCost,
+        finalTotal,
+        amountToFreeShipping,
+        incrementQuantity,
+        decrementQuantity,
+        removeFromCart,
+        clearCart
+    } = useCart();
 
     return (
         <>
@@ -64,7 +74,30 @@ function CheckoutPage() {
                         </div>
 
                         {/* Totale carrello */}
-                        <p><strong>Totale carrello: {totalPrice.toFixed(2)} €</strong></p>
+                        <div className="total-cart-info">
+                            <p>Subtotale: {totalPrice.toFixed(2)} €</p>
+
+                            <p>
+                                Spedizione: {shippingCost === 0 ? "Gratuita" : shippingCost.toFixed(2) + " €"}
+                            </p>
+
+                            {shippingCost > 0 && (
+                                <p className="shipping-cost-info">
+                                    Ti mancano <strong>{amountToFreeShipping.toFixed(2)}€ </strong>
+                                    per ottenere la <strong>spedizione gratuita</strong>
+                                </p>
+                            )}
+
+                            {shippingCost === 0 && totalPrice > 0 && (
+                                <p className="free-shipping">
+                                    🎉 Hai ottenuto la spedizione gratuita!
+                                </p>
+                            )}
+
+                            <p>
+                                <strong>Totale: {finalTotal.toFixed(2)} €</strong>
+                            </p>
+                        </div>
                     </div>
                 )}
 

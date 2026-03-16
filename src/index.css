@@ -568,6 +568,21 @@ body {
     padding: 7px;
 }
 
+.total-cart-info {
+    color: white;
+    margin-top: 20px;
+}
+
+.shipping-cost-info {
+    color: rgb(202, 77, 39);
+    margin: 5px 0px;
+}
+
+.free-shipping {
+    color: rgb(17, 104, 37);
+    margin: 5px 0px;
+}
+
 
 /* ORDER FORM */
 
