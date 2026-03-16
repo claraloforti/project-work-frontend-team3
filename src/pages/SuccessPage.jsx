@@ -25,7 +25,7 @@ function SuccessPage() {
                     borderRadius: '10px',
                     border: '1px dashed #d4af37'
                 }}>
-                    <h3 style={{ color: '#d4af37', marginBottom: '15px' }}>🛠️ Area Anteprima Email</h3>
+                    <h3 style={{ color: '#d4af37', marginBottom: '15px' }}>Anteprima Email</h3>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
 
                         {urlCliente && (
