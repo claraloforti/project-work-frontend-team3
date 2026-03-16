@@ -739,15 +739,16 @@ form button {
 
 .wishlist-card {
     width: calc((100% / 3) - 40px);
+    text-align: center;
 }
 
 .wishlist-img {
     width: 100%;
 }
 
-.wishlist-details {
+.wishlist-details * {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 
