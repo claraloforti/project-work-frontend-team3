@@ -74,6 +74,7 @@ function CartProvider({ children }) {
         0
     );
 
+    // Calcolo spese di spedizione
     const SHIPPING_COST = 100.00;
     const FREE_SHIPPING_THRESHOLD = 1000.00;
 

@@ -16,7 +16,7 @@ function SuccessPage() {
             <p>Un’email di conferma con il riepilogo dell’ordine è stata inviata al tuo indirizzo.</p>
             <p>Ti consigliamo di verificare anche la cartella spam.</p>
 
-            {/* --- SEZIONE DEBUG PER PRESENTAZIONE --- */}
+            {/* Anteprima email cliente e venditore */}
             {(urlCliente || urlVenditore) && (
                 <div style={{
                     marginTop: '40px',
@@ -25,7 +25,7 @@ function SuccessPage() {
                     borderRadius: '10px',
                     border: '1px dashed #d4af37'
                 }}>
-                    <h3 style={{ color: '#d4af37', marginBottom: '15px' }}>🛠️ Area Anteprima Email (a scopo didattico)</h3>
+                    <h3 style={{ color: '#d4af37', marginBottom: '15px' }}>🛠️ Area Anteprima Email</h3>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
 
                         {urlCliente && (
