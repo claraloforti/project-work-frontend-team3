@@ -6,9 +6,9 @@ function CheckoutPage() {
     // Prendo dal CartContext il carrello e tutte le funzioni per gestirlo
     const {
         cart,
+        subtotal,
         totalPrice,
         shippingCost,
-        finalTotal,
         amountToFreeShipping,
         incrementQuantity,
         decrementQuantity,
@@ -75,7 +75,7 @@ function CheckoutPage() {
 
                         {/* Totale carrello */}
                         <div className="total-cart-info">
-                            <p>Subtotale: {totalPrice.toFixed(2)} €</p>
+                            <p>Subtotale: {subtotal.toFixed(2)} €</p>
 
                             <p>
                                 Spedizione: {shippingCost === 0 ? "Gratuita" : shippingCost.toFixed(2) + " €"}
@@ -95,14 +95,14 @@ function CheckoutPage() {
                             )}
 
                             <p>
-                                <strong>Totale: {finalTotal.toFixed(2)} €</strong>
+                                <strong>Totale: {totalPrice.toFixed(2)} €</strong>
                             </p>
                         </div>
                     </div>
                 )}
 
                 {/* ORDER FORM */}
-                <OrderForm cart={cart} finalTotal={finalTotal} />
+                <OrderForm cart={cart} totalPrice={totalPrice} />
             </div>
         </>
     );

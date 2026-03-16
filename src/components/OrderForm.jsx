@@ -3,7 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 
-function OrderForm({ cart, finalTotal }) {
+function OrderForm({ cart, totalPrice }) {
     const [customer, setCustomer] = useState({
         customer_name: "",
         customer_surname: "",
@@ -75,6 +75,7 @@ function OrderForm({ cart, finalTotal }) {
             shipping_address: customer.shipping_address,
             billing_address: sameBilling ? customer.shipping_address : customer.billing_address,
             customer_phone: customer.customer_phone,
+            total_price: totalPrice,
             whiskies: cart.map(item => ({
                 whisky_id: item.id,
                 quantity: item.quantity,
@@ -164,7 +165,7 @@ function OrderForm({ cart, finalTotal }) {
             )}
 
             {/* Totale ordine */}
-            <p className="total-order-price"><strong>Totale ordine: {finalTotal.toFixed(2)} €</strong></p>
+            <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
 
             {/* Checkbox termini e condizioni */}
             <div className="terms-checkbox">

@@ -69,7 +69,7 @@ function CartProvider({ children }) {
         setCart([]);
     };
 
-    const totalPrice = cart.reduce(
+    const subtotal = cart.reduce(
         (sum, item) => sum + item.unitary_price * item.quantity,
         0
     );
@@ -78,9 +78,9 @@ function CartProvider({ children }) {
     const SHIPPING_COST = 100.00;
     const FREE_SHIPPING_THRESHOLD = 1000.00;
 
-    const shippingCost = totalPrice >= FREE_SHIPPING_THRESHOLD || totalPrice === 0 ? 0 : SHIPPING_COST;
-    const finalTotal = totalPrice + shippingCost;
-    const amountToFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
+    const shippingCost = subtotal >= FREE_SHIPPING_THRESHOLD || subtotal === 0 ? 0 : SHIPPING_COST;
+    const totalPrice = subtotal + shippingCost;
+    const amountToFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
 
     return (
         <CartContext.Provider value={{
@@ -90,9 +90,9 @@ function CartProvider({ children }) {
             incrementQuantity,
             decrementQuantity,
             clearCart,
-            totalPrice,
+            subtotal,
             shippingCost,
-            finalTotal,
+            totalPrice,
             amountToFreeShipping
         }}>
             {children}
