@@ -55,7 +55,7 @@ body {
     width: 200px;
 
     pointer-events: none;
-    /* Impedisce che l’area trasparente del logo blocchi i clic sugli elementi sottostanti */
+
 }
 
 .home-link,
@@ -475,17 +475,12 @@ body {
     justify-content: space-around;
 }
 
-.detail-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
 .back-btn {
+    display: block;
+    margin: 0 auto 100px;
     background-color: #edcf6bad;
     padding: 10px;
-    cursor: pointer;
 }
-
 
 .detail-info .whisky-price {
     margin: 20px 0;
@@ -739,7 +734,7 @@ form button {
     flex-wrap: wrap;
     background-color: #edcf6bad;
     padding: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .wishlist-card {
@@ -750,9 +745,9 @@ form button {
     width: 100%;
 }
 
-.wishlist-details * {
+.wishlist-details {
     color: #ffffff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
 }
 
@@ -892,7 +887,26 @@ form button {
         font-size: 1.5rem;
         padding: 10px 20px;
     }
+
+    /* Cards */
+  .cards-container,
+    .wishlist-list {
+        display: flex ;
+        flex-wrap: wrap ;
+        justify-content: center;
+        width: 100%;
+        gap: 20px;
+    }
+    .new-products .whisky-card,
+    .on-sale-section .whisky-card,
+    .whisky-page .whisky-card,
+    .wishlist-card {
+        width: calc(50% - 20px);
+        margin-bottom: 20px;
+    }
 }
+
+
 
 /* Responsive Mobile */
 
