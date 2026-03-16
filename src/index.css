@@ -830,9 +830,6 @@ form button {
 }
 
 
-
-
-
 /* RESPONSIVE */
 
 /* Responsive Tablet */
@@ -840,6 +837,25 @@ form button {
 @media screen and (max-width:1024px) {
     .container {
         max-width: 90%;
+    }
+
+    .nav-links {
+        height: 150px;
+    }
+
+    .logo-img {
+        width: 150px;
+    }
+
+    .left-links,
+    .nav-icons {
+        gap: 20px;
+    }
+
+    .home-link,
+    .whisky-link,
+    .navbar .fa-solid {
+        font-size: 20px;
     }
 }
 
@@ -852,11 +868,18 @@ form button {
 
     /* NAVBAR */
 
-    .home-link,
-    .whisky-link {
-        font-size: 16px;
+    .nav-links {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
     }
 
+    .logo-img {
+        width: 130px;
+    }
+
+    .home-link,
+    .whisky-link,
     .navbar .fa-solid {
         font-size: 16px;
     }
