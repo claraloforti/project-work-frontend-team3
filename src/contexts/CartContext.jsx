@@ -74,6 +74,13 @@ function CartProvider({ children }) {
         0
     );
 
+    const SHIPPING_COST = 100.00;
+    const FREE_SHIPPING_THRESHOLD = 1000.00;
+
+    const shippingCost = totalPrice >= FREE_SHIPPING_THRESHOLD || totalPrice === 0 ? 0 : SHIPPING_COST;
+    const finalTotal = totalPrice + shippingCost;
+    const amountToFreeShipping = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
+
     return (
         <CartContext.Provider value={{
             cart,
@@ -82,7 +89,10 @@ function CartProvider({ children }) {
             incrementQuantity,
             decrementQuantity,
             clearCart,
-            totalPrice
+            totalPrice,
+            shippingCost,
+            finalTotal,
+            amountToFreeShipping
         }}>
             {children}
         </CartContext.Provider>

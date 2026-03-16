@@ -2,7 +2,7 @@ import { useSearchParams, Link } from "react-router-dom";
 
 function SuccessPage() {
     const [searchParams] = useSearchParams();
-    
+
     // Recuperiamo l'ID ordine e i due link delle email dall'URL
     const orderId = searchParams.get("order_id");
     const urlCliente = searchParams.get("url_c");
@@ -18,16 +18,16 @@ function SuccessPage() {
 
             {/* --- SEZIONE DEBUG PER PRESENTAZIONE --- */}
             {(urlCliente || urlVenditore) && (
-                <div style={{ 
-                    marginTop: '40px', 
-                    padding: '20px', 
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                <div style={{
+                    marginTop: '40px',
+                    padding: '20px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
                     borderRadius: '10px',
                     border: '1px dashed #d4af37'
                 }}>
                     <h3 style={{ color: '#d4af37', marginBottom: '15px' }}>🛠️ Area Anteprima Email (a scopo didattico)</h3>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-                        
+
                         {urlCliente && (
                             <a href={urlCliente} target="_blank" rel="noopener noreferrer" style={{
                                 backgroundColor: '#d4af37',
@@ -53,7 +53,7 @@ function SuccessPage() {
                                 💰 Vedi Mail Venditore
                             </a>
                         )}
-                        
+
                     </div>
                 </div>
             )}
