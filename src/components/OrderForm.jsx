@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Swal from "sweetalert2"; 
+import Swal from "sweetalert2";
 import "../clara.css";
 
 function OrderForm({ cart, totalPrice }) {
@@ -37,17 +37,18 @@ function OrderForm({ cart, totalPrice }) {
         e.preventDefault();
 
         if (cart.length === 0) {
-            Swal.fire("Attenzione", "Il carrello è vuoto!", "warning"); 
+            Swal.fire("Attenzione", "Il carrello è vuoto!", "warning");
             return;
         }
 
         if (!termsAccepted) {
-            Swal.fire("Termini e Condizioni", "Accetta i termini per procedere.", "info"); 
+            Swal.fire("Termini e Condizioni", "Accetta i termini per procedere.", "info");
             return;
         }
 
         setLoading(true);
 
+        // Payload con dati dell'ordine
         const orderPayload = {
             customer_name: customer.customer_name,
             customer_surname: customer.customer_surname,
@@ -63,8 +64,10 @@ function OrderForm({ cart, totalPrice }) {
             termsAccepted
         };
 
+        // Invio dati al BE
         axios.post("http://localhost:3000/api/products/orders", orderPayload)
             .then(res => {
+                // Reindirizza l’utente alla pagina di pagamento Stripe se il backend restituisce l’URL della sessione
                 if (res.data.url) {
                     window.location.href = res.data.url;
                 } else {
@@ -75,7 +78,7 @@ function OrderForm({ cart, totalPrice }) {
             .catch(err => {
                 console.error("Errore durante l’invio dell’ordine:", err);
 
-                // --- LOGICA SWEET ALERT PER ERRORI BACKEND ---
+                // LOGICA SWEET ALERT PER ERRORI BACKEND
                 if (err.response && err.response.data && err.response.data.errors) {
                     const listaErrori = err.response.data.errors
                         .map(error => `<li>${error}</li>`)
@@ -91,7 +94,7 @@ function OrderForm({ cart, totalPrice }) {
                 } else {
                     Swal.fire("Errore", "Si è verificato un errore imprevisto.", "error");
                 }
-               
+
             })
             .finally(() => {
                 setLoading(false);
@@ -100,9 +103,10 @@ function OrderForm({ cart, totalPrice }) {
 
     return (
         <form className="order-form" onSubmit={handleSubmit}>
-            
+
             {success && <p className="success-msg">Ordine completato con successo!</p>}
 
+            {/* Dati per la spedizione */}
             <div className="shipping-data">
                 <h2>Dati per la spedizione</h2>
                 <input type="text" name="customer_name" placeholder="Nome" value={customer.customer_name} onChange={handleChange} required />
@@ -121,8 +125,10 @@ function OrderForm({ cart, totalPrice }) {
                 <input type="tel" name="billing_phone" placeholder="Telefono" value={customer.customer_phone} onChange={handleChange} required pattern="^\+?[0-9]{6,15}$" />
             </div>
 
+            {/* Totale ordine */}
             <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
 
+            {/* Checkbox termini e condizioni */}
             <div className="terms-checkbox">
                 <input type="checkbox" id="terms" checked={termsAccepted} onChange={handleTermsChange} />
                 <label htmlFor="terms">Accetto i termini e condizioni</label>
@@ -132,6 +138,7 @@ function OrderForm({ cart, totalPrice }) {
                 Leggi termini
             </button>
 
+            {/* Popup termini e condizioni */}
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
@@ -152,6 +159,7 @@ function OrderForm({ cart, totalPrice }) {
                 </div>
             )}
 
+            {/* Bottone completa l'ordine */}
             <button
                 type="submit"
                 disabled={loading || cart.length === 0 || !termsAccepted}
