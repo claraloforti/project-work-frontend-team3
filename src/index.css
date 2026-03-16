@@ -744,16 +744,20 @@ form button {
 
 .wishlist-card {
     width: calc((100% / 3) - 40px);
+    text-align: center;
 }
 
 .wishlist-img {
     width: 100%;
 }
 
-.wishlist-details * {
-    color: #ffffff;
-    font-size: 1.2rem;
-    text-align: center;
+.wishlist-details .full-price-no-discount {
+    margin: 10px;
+}
+
+.wishlist-details h3,
+.wishlist-details .discount-price {
+    color: white;
 }
 
 .wishlist-actions {
