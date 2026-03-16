@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import WhiskyDetailCard from "../components/WhiskyDetailCard";
@@ -32,18 +32,9 @@ function WhiskyDetailPage() {
 
     if (notFound) return <NotFoundPage />;
 
-
-
     return (
         <div className="container">
             <WhiskyDetailCard whisky={whisky} />
-
-            {/* Bottone torna ai prodotti */}
-            <Link to="/whisky">
-                <button className="back-btn">
-                    ← TORNA ALLA COLLEZIONE
-                </button>
-            </Link>
         </div>
     );
 }

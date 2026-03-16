@@ -475,12 +475,17 @@ body {
     justify-content: space-around;
 }
 
+.detail-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .back-btn {
-    display: block;
-    margin: 0 auto 100px;
     background-color: #edcf6bad;
     padding: 10px;
+    cursor: pointer;
 }
+
 
 .detail-info .whisky-price {
     margin: 20px 0;
@@ -745,9 +750,9 @@ form button {
     width: 100%;
 }
 
-.wishlist-details {
+.wishlist-details * {
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
 }
 

@@ -1,11 +1,13 @@
 import { useCart } from "../contexts/CartContext"
 import { useWishlist } from "../contexts/WishlistContext"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 function WhiskyDetailCard({ whisky }) {
     const { addToCart } = useCart();
     const { wishlist, toggleWishlist } = useWishlist();
     const [added, setAdded] = useState(false);
+    const navigate = useNavigate();
 
     // Calcolo prezzo scontato
     const finalPrice = whisky.price - (whisky.price * whisky.discount / 100)
@@ -47,28 +49,34 @@ function WhiskyDetailCard({ whisky }) {
                     )
                 }
 
-                {/* Bottone aggiungi al carrello */}
-                <button
-                    className={`add-to-cart-btn ${added ? "added" : ""}`}
-                    onClick={() => {
-                        addToCart({
-                            id: whisky.id,
-                            slug: whisky.slug,
-                            name: whisky.name,
-                            image: whisky.image,
-                            price: whisky.price,
-                            unitary_price: whisky.unitary_price
-                        }, 1);
+                <div className="detail-buttons">
+                    {/* Bottone aggiungi al carrello */}
+                    <button
+                        className={`add-to-cart-btn ${added ? "added" : ""}`}
+                        onClick={() => {
+                            addToCart({
+                                id: whisky.id,
+                                slug: whisky.slug,
+                                name: whisky.name,
+                                image: whisky.image,
+                                price: whisky.price,
+                                unitary_price: whisky.unitary_price
+                            }, 1);
 
-                        setAdded(true);
+                            setAdded(true);
 
-                        setTimeout(() => {
-                            setAdded(false);
-                        }, 2000);
-                    }}
-                >
-                    {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
-                </button>
+                            setTimeout(() => {
+                                setAdded(false);
+                            }, 2000);
+                        }}
+                    >
+                        {added ? "Aggiunto ✓" : "Aggiungi al carrello"}
+                    </button>
+                    {/* Bottone torna alla pagina precedente */}
+                    <button className="back-btn" onClick={() => navigate(-1)}>
+                        ← TORNA INDIETRO
+                    </button>
+                </div>
             </div>
         </div>
     );
