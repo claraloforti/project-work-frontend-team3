@@ -2,7 +2,7 @@ import { useWishlist } from "../contexts/WishlistContext";
 import { useCart } from "../contexts/CartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import '../Valeria.css'
+
 
 function WishlistPage() {
     const { wishlist, toggleWishlist } = useWishlist();

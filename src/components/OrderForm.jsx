@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../clara.css";
+
 
 function OrderForm({ cart, totalPrice }) {
     const [customer, setCustomer] = useState({

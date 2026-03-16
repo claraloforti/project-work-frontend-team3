@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HeroSection from "../components/HeroSection";
 import WhiskyCard from "../components/WhiskyCard";
 import axios from "axios";
-import '../valeria.css';
+
 
 function Homepage() {
   const [newProducts, setNewProducts] = useState([]);
