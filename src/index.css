@@ -900,9 +900,9 @@ form button {
     }
     .new-products .whisky-card,
     .on-sale-section .whisky-card,
-    .whisky-page .whisky-card,
-    .wishlist-card {
-        width: calc(50% - 20px);
+    .whisky-page .cards-container .whisky-card, 
+    .wishlist-list .wishlist-card {
+        width: calc(50% - 20px) !important;
         margin-bottom: 20px;
     }
 }
@@ -946,4 +946,6 @@ form button {
         font-size: 1.2rem;
         padding: 10px 20px;
     }
+
+    /* Cards */
 }
