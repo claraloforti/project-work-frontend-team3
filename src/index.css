@@ -839,6 +839,7 @@ form button {
         max-width: 90%;
     }
 
+    /* Navbar*/
     .nav-links {
         height: 150px;
     }
@@ -857,6 +858,20 @@ form button {
     .navbar .fa-solid {
         font-size: 20px;
     }
+
+    /* Hero */
+    .hero-card {
+        height: 50vh;
+    }
+
+    .hero-overlay {
+        font-size: 30px;
+    }
+
+    .hero-btn {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
 }
 
 /* Responsive Mobile */
@@ -866,8 +881,7 @@ form button {
         max-width: 90%;
     }
 
-    /* NAVBAR */
-
+    /* Navbar */
     .nav-links {
         flex-direction: column;
         height: auto;
@@ -882,5 +896,19 @@ form button {
     .whisky-link,
     .navbar .fa-solid {
         font-size: 16px;
+    }
+
+    /* Hero */
+    .hero-card {
+        height: 40vh;
+    }
+
+    .hero-overlay {
+        font-size: 20px;
+    }
+
+    .hero-btn {
+        font-size: 1.2rem;
+        padding: 10px 20px;
     }
 }

@@ -11,7 +11,7 @@ function HeroSection() {
           loop playsInline
           className='hero-video'
         />
-        <div className='hero-overlay'>
+        <div className='hero-overlay container'>
           <h1>L'eredità del gusto, distillata.</h1>
           <Link to="/whisky" className='hero-btn'> SCOPRI LA NOSTRA CANTINA </Link>
         </div>
