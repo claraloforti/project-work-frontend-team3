@@ -41,8 +41,8 @@ function Homepage() {
       <HeroSection />
 
       {/* NUOVI ARRIVI */}
-      <section className="new-products">
-        <h2 className="new-title">ULTIMI ARRIVI IN CANTINA</h2>
+      <section className="new-products container">
+        <h2 className="new-title">Ultimi arrivi in cantina</h2>
         <div className="cards-container">
           {newProducts.map(whisky => (
             <WhiskyCard key={whisky.slug} whisky={whisky} />
@@ -51,8 +51,8 @@ function Homepage() {
       </section>
 
       {/* PRODOTTI IN PROMOZIONE */}
-      <section className="on-sale-section">
-        <h2 className="on-sale-title">I NOSTRI PRODOTTI IN PROMOZIONE</h2>
+      <section className="on-sale-section container">
+        <h2 className="on-sale-title">I nostri prodotti in promozione</h2>
         <div className="cards-container">
           {onSaleWhiskies.map(whisky => (
             <WhiskyCard key={whisky.slug} whisky={whisky} />

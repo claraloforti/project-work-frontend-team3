@@ -175,9 +175,13 @@ body {
 
 /* ON SALE, NEW PRODUCTS SECTION */
 
-.on-sale-section {
-    width: 100%;
+.on-sale-section,
+.new-products {
     min-height: 70vh;
+    margin-top: 90px;
+}
+
+.on-sale-section {
     margin-bottom: 90px;
 }
 
@@ -186,7 +190,7 @@ body {
     font-size: 2.5rem;
     color: #eec461;
     text-align: center;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 .new-products .cards-container,
@@ -194,8 +198,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
     background-color: #edcf6bad;
     padding: 20px;
 }
@@ -206,7 +208,6 @@ body {
 }
 
 .whisky-img {
-
     margin-top: 20px;
     transition: 0.75s;
 }
@@ -726,7 +727,7 @@ form button {
 }
 
 .wishlist-details {
-    color: #eec461;
+    color: #ffffff;
     font-size: 1rem;
     text-align: center;
 }
@@ -767,9 +768,61 @@ form button {
 
 /* FOOTER */
 
-footer {
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.321);
+.footer {
+    background-color: rgba(0, 0, 0, 0.849);
+    color: white;
+    padding: 40px 20px 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.2s;
+}
+
+.footer-section li:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 30px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
 }
 
 
