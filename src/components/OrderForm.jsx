@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../clara.css";
+
 
 function OrderForm({ cart, totalPrice }) {
     const [customer, setCustomer] = useState({
@@ -13,6 +13,7 @@ function OrderForm({ cart, totalPrice }) {
         customer_phone: ""
     });
 
+    const [sameBilling, setSameBilling] = useState(true);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [termsAccepted, setTermsAccepted] = useState(false);
@@ -23,9 +24,27 @@ function OrderForm({ cart, totalPrice }) {
         setCustomer({ ...customer, [e.target.name]: e.target.value });
     };
 
-    // Handler per il checkbox
+    // Handler per il checkbox termini e condizioni
     const handleTermsChange = (e) => {
         setTermsAccepted(e.target.checked);
+    };
+
+    // Handler checkbox fatturazione uguale a spedizione
+    const handleSameBillingChange = (e) => {
+        const checked = e.target.checked;
+        setSameBilling(checked);
+
+        if (checked) {
+            setCustomer({
+                ...customer,
+                billing_address: customer.shipping_address
+            });
+        } else {
+            setCustomer({
+                ...customer,
+                billing_address: ""
+            });
+        }
     };
 
     // Handler per il modal
@@ -54,7 +73,7 @@ function OrderForm({ cart, totalPrice }) {
             customer_surname: customer.customer_surname,
             customer_email: customer.customer_email,
             shipping_address: customer.shipping_address,
-            billing_address: customer.billing_address,
+            billing_address: sameBilling ? customer.shipping_address : customer.billing_address,
             customer_phone: customer.customer_phone,
             whiskies: cart.map(item => ({
                 whisky_id: item.id,
@@ -116,14 +135,33 @@ function OrderForm({ cart, totalPrice }) {
                 <input type="tel" name="customer_phone" placeholder="Telefono" value={customer.customer_phone} onChange={handleChange} required pattern="^\+?[0-9]{6,15}$" />
             </div>
 
-            <div className="billing-data">
-                <h2>Dati per la fatturazione</h2>
-                <input type="text" name="billing_name" placeholder="Nome" value={customer.customer_name} onChange={handleChange} required />
-                <input type="text" name="billing_surname" placeholder="Cognome" value={customer.customer_surname} onChange={handleChange} required />
-                <input type="email" name="billing_email" placeholder="Email" value={customer.customer_email} onChange={handleChange} required />
-                <input type="text" name="billing_address" placeholder="Indirizzo fatturazione" value={customer.billing_address} onChange={handleChange} required />
-                <input type="tel" name="billing_phone" placeholder="Telefono" value={customer.customer_phone} onChange={handleChange} required pattern="^\+?[0-9]{6,15}$" />
+            {/* Checkbox fatturazione */}
+            <div className="billing-checkbox">
+                <input
+                    type="checkbox"
+                    id="sameBilling"
+                    checked={sameBilling}
+                    onChange={handleSameBillingChange}
+                />
+                <label htmlFor="sameBilling">
+                    Indirizzo di fatturazione uguale a quello di spedizione
+                </label>
             </div>
+
+            {/* Indirizzo di fatturazione */}
+            {!sameBilling && (
+                <div className="billing-data">
+                    <h2>Indirizzo di fatturazione</h2>
+                    <input
+                        type="text"
+                        name="billing_address"
+                        placeholder="Indirizzo fatturazione"
+                        value={customer.billing_address}
+                        onChange={handleChange}
+                        required
+                    />
+                </div>
+            )}
 
             {/* Totale ordine */}
             <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>

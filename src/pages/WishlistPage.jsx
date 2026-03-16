@@ -2,7 +2,7 @@ import { useWishlist } from "../contexts/WishlistContext";
 import { useCart } from "../contexts/CartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import '../Valeria.css'
+
 
 function WishlistPage() {
     const { wishlist, toggleWishlist } = useWishlist();
@@ -10,7 +10,7 @@ function WishlistPage() {
     const [addedSlug, setAddedSlug] = useState(null);
 
     return (
-        <div className="wishlist-container">
+        <div className="wishlist-container container">
             <header className="wishlist-header">
                 <h1>I tuoi preferiti</h1>
                 <p>Hai {wishlist.length} {wishlist.length === 1 ? 'bottiglia' : 'bottiglie'} nella tua lista.</p>

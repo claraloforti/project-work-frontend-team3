@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../clara.css";
 import { useCart } from "../contexts/CartContext";
 import { useWishlist } from "../contexts/WishlistContext";
 

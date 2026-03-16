@@ -1,6 +1,6 @@
 import { useCart } from "../contexts/CartContext";
 import OrderForm from "../components/OrderForm";
-import "../clara.css";
+
 
 function CheckoutPage() {
     // Prendo dal CartContext il carrello e tutte le funzioni per gestirlo
