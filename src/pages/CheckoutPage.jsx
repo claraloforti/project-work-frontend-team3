@@ -83,7 +83,7 @@ function CheckoutPage() {
 
                             {shippingCost > 0 && (
                                 <p className="shipping-cost-info">
-                                    Ti mancano <strong>{amountToFreeShipping.toFixed(2)}€ </strong>
+                                    Aggiungi <strong>{amountToFreeShipping.toFixed(2)}€ </strong>
                                     per ottenere la <strong>spedizione gratuita</strong>
                                 </p>
                             )}

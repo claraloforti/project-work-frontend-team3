@@ -528,7 +528,6 @@ body {
     text-align: left;
 }
 
-
 .cart-products button {
     padding: 3px;
     margin-bottom: 10px;
@@ -735,6 +734,7 @@ form button {
     flex-wrap: wrap;
     background-color: #edcf6bad;
     padding: 50px;
+    margin-bottom: 50px;
 }
 
 .wishlist-card {
