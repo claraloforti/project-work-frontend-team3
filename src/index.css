@@ -177,7 +177,6 @@ body {
 
 .on-sale-section,
 .new-products {
-    min-height: 70vh;
     margin-top: 90px;
 }
 
@@ -222,11 +221,18 @@ body {
 }
 
 .whisky-price {
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .whisky-info {
     text-align: center;
+}
+
+.new-products .whisky-img-wrapper i {
+    font-size: 28px;
 }
 
 
@@ -314,9 +320,9 @@ body {
 .detail-img-wrapper i {
     position: absolute;
     color: rgba(0, 0, 0, 0.29);
-    font-size: 32px;
-    left: 85%;
-    top: 8%;
+    font-size: 30px;
+    left: 80%;
+    top: 10%;
     cursor: pointer;
     transition: transform 0.2s ease, color 0.2s ease;
 }
@@ -469,17 +475,25 @@ body {
     width: 100%;
 }
 
+.whisky-detail-card .whisky-price {
+    display: inline;
+}
+
 .detail-info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
+.detail-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
 .back-btn {
-    display: block;
-    margin: 0 auto 100px;
     background-color: #edcf6bad;
     padding: 10px;
+    cursor: pointer;
 }
 
 .detail-info .whisky-price {
@@ -526,6 +540,10 @@ body {
 .cart-product-info {
     font-size: 0.9rem;
     text-align: left;
+}
+
+.cart-item .whisky-price {
+    justify-content: flex-start;
 }
 
 .cart-products button {
@@ -755,6 +773,7 @@ form button {
 .wishlist-actions {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
@@ -851,11 +870,8 @@ form button {
 /* Responsive Tablet */
 
 @media screen and (max-width:1024px) {
-    .container {
-        max-width: 90%;
-    }
 
-    /* Navbar*/
+    /* Navbar */
     .nav-links {
         height: 150px;
     }
@@ -870,7 +886,10 @@ form button {
     }
 
     .home-link,
-    .whisky-link,
+    .whisky-link {
+        font-size: 18px;
+    }
+
     .navbar .fa-solid {
         font-size: 20px;
     }
@@ -890,20 +909,25 @@ form button {
     }
 
     /* Cards */
-  .cards-container,
+    .cards-container,
     .wishlist-list {
-        display: flex ;
-        flex-wrap: wrap ;
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         width: 100%;
         gap: 20px;
     }
+
     .new-products .whisky-card,
     .on-sale-section .whisky-card,
-    .whisky-page .cards-container .whisky-card, 
+    .whisky-page .cards-container .whisky-card,
     .wishlist-list .wishlist-card {
         width: calc(50% - 20px) !important;
         margin-bottom: 20px;
+    }
+
+    .full-price {
+        color: black;
     }
 }
 
@@ -912,23 +936,26 @@ form button {
 /* Responsive Mobile */
 
 @media screen and (max-width:768px) {
-    .container {
-        max-width: 90%;
-    }
 
     /* Navbar */
     .nav-links {
-        flex-direction: column;
-        height: auto;
-        padding: 20px 0;
+        height: 150px;
     }
 
     .logo-img {
-        width: 130px;
+        width: 150px;
+    }
+
+    .left-links,
+    .nav-icons {
+        gap: 20px;
     }
 
     .home-link,
-    .whisky-link,
+    .whisky-link {
+        font-size: 14px;
+    }
+
     .navbar .fa-solid {
         font-size: 16px;
     }
