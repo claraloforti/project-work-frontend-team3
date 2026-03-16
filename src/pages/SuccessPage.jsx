@@ -1,12 +1,20 @@
 import { useSearchParams, Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useCart } from "../contexts/CartContext";
 
 function SuccessPage() {
     const [searchParams] = useSearchParams();
-
+    // Recupera la funzione dal context
+    const { clearCart } = useCart();
     // Recuperiamo l'ID ordine e i due link delle email dall'URL
     const orderId = searchParams.get("order_id");
     const urlCliente = searchParams.get("url_c");
     const urlVenditore = searchParams.get("url_v");
+
+    useEffect(() => {
+        // Questa funzione svuota lo stato 'cart' e il localStorage
+        clearCart();
+    }, []);
 
     return (
         <div className="payment-page container" style={{ textAlign: 'center', padding: '50px', color: 'white' }}>
