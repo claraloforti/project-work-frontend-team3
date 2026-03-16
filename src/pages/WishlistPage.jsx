@@ -29,15 +29,26 @@ function WishlistPage() {
                         return (
                             <div key={whisky.slug} className="wishlist-card">
                                 <div className="wishlist-image-wrapper">
-                                    <img
-                                        src={whisky.image}
-                                        alt={whisky.name}
-                                        className="wishlist-img"
-                                    />
+                                    {/* Link al dettaglio cliccando l'immagine */}
+                                    <Link to={`/whisky/${whisky.slug}`} className="whisky-link">
+                                        <img src={whisky.image} alt={whisky.name} className="wishlist-img" />
+                                    </Link>
                                 </div>
 
                                 <div className="wishlist-details">
-                                    <h3>{whisky.name}</h3>
+                                    {/* Link al dettaglio cliccando sul titolo */}
+                                    <Link to={`/whisky/${whisky.slug}`} className="whisky-link">
+                                        <h3>{whisky.name}</h3>
+                                    </Link>
+                                    {/* Prezzo */}
+                                    {whisky.discount > 0 ? (
+                                        <div className="whisky-price">
+                                            <span className="full-price">{whisky.price} €</span>
+                                            <span className="discount-price">{Number(whisky.unitary_price).toFixed(2)} €</span>
+                                        </div>
+                                    ) : (
+                                        <p className="full-price-no-discount">{whisky.price} €</p>
+                                    )}
                                     <div className="wishlist-actions">
                                         {/* Bottone Aggiungi al carrello */}
                                         <button
