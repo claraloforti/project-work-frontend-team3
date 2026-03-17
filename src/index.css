@@ -995,33 +995,22 @@ form button {
         width: 100%;
     }
 
-<<<<<<< HEAD
-    /* Card carrello */
-    .cart-item {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .cart-product-info * {
-        margin: 5px;
-        text-align: center;
-=======
     /* Sezione Carrello */
-    .cart-item{
+    .cart-item {
         display: block;
         width: 150px;
     }
-    .checkout-page img{
+
+    .checkout-page img {
         width: 100%;
     }
 
     /* Wishlist */
-    .wishlist-list{
+    .wishlist-list {
         display: block;
     }
-    .wishlist-card{
+
+    .wishlist-card {
         width: 100%;
->>>>>>> 003384d3975646f2461ea1e3f38c1b3d7776b797
     }
 }
