@@ -997,12 +997,14 @@ form button {
 
     /* Sezione Carrello */
     .cart-item {
-        display: block;
-        width: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
     }
 
-    .checkout-page img {
-        width: 100%;
+    .cart-product-info * {
+        margin: 5px;
+        text-align: center;
     }
 
     /* Wishlist */
