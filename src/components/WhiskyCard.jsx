@@ -32,7 +32,7 @@ function WhiskyCard({ whisky }) {
                     <h3>{whisky.name}</h3>
                 </Link>
                 <p>{whisky.category}</p>
-                <p>{whisky.description}</p>
+                <p className="whisky-description">{whisky.description}</p>
                 {/* Prezzo */}
                 {whisky.discount > 0 ? (
                     <div className="whisky-price">

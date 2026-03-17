@@ -247,6 +247,9 @@ body {
     background-color: #edcf6bad;
     padding: 50px;
 }
+.whisky-description{
+    display: none;
+}
 
 .whisky-page .cards-container.grid .whisky-card {
     width: calc((100% / 3) - 20px);
