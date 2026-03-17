@@ -998,6 +998,7 @@ form button {
     /* Sezione Carrello */
     .cart-item {
         display: block;
+        min-width: 150px;
     }
 
     .checkout-page img {
@@ -1007,6 +1008,19 @@ form button {
     .cart-product-info * {
         margin: 5px;
         text-align: center;
+    }
+
+    .decrement-btn,
+    .increment-btn {
+        font-size: 8px;
+    }
+
+    .checkout-page {
+        display: block;
+    }
+
+    .order-form {
+        margin: 20px auto;
     }
 
     /* Wishlist */

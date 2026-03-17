@@ -25,7 +25,7 @@ function CheckoutPage() {
                 {cart.length === 0 && <p>Il carrello è vuoto.</p>}
 
                 {cart.length > 0 && (
-                    <div className="cart-summary">
+                    <div>
                         {/* Bottone svuota carrello */}
                         {cart.length > 0 && (
                             <button className="clear-cart-btn" onClick={clearCart}>
