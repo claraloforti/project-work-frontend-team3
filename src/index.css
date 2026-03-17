@@ -204,7 +204,7 @@ body {
 .new-products .whisky-card,
 .on-sale-section .whisky-card {
     width: calc((100% / 4) - 20px);
-    
+
 }
 
 .whisky-img {
@@ -978,18 +978,29 @@ form button {
     }
 
     /* Cards */
-    .whisky-card{
+    .whisky-card,
+    .wishlist-card {
         min-width: 100%;
-    }
-    .whisky-info p{
-        display: none;
     }
 
     /* Whisky Detail Card */
-    .whisky-detail-card{
+    .whisky-detail-card {
         display: block;
     }
-    .detail-img-wrapper{
+
+    .detail-img-wrapper {
         width: 100%;
+    }
+
+    /* Card carrello */
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .cart-product-info * {
+        margin: 5px;
+        text-align: center;
     }
 }
