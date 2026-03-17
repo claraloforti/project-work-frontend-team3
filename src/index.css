@@ -204,6 +204,7 @@ body {
 .new-products .whisky-card,
 .on-sale-section .whisky-card {
     width: calc((100% / 4) - 20px);
+    
 }
 
 .whisky-img {
@@ -935,7 +936,7 @@ form button {
 
 /* Responsive Mobile */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:760px) {
 
     /* Navbar */
     .nav-links {
@@ -944,6 +945,8 @@ form button {
 
     .logo-img {
         width: 150px;
+        padding: 20px;
+        margin: 20px;
     }
 
     .left-links,
@@ -962,7 +965,7 @@ form button {
 
     /* Hero */
     .hero-card {
-        height: 40vh;
+        height: 50vh;
     }
 
     .hero-overlay {
@@ -970,9 +973,23 @@ form button {
     }
 
     .hero-btn {
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 10px 20px;
     }
 
     /* Cards */
+    .whisky-card{
+        min-width: 100%;
+    }
+    .whisky-info p{
+        display: none;
+    }
+
+    /* Whisky Detail Card */
+    .whisky-detail-card{
+        display: block;
+    }
+    .detail-img-wrapper{
+        width: 100%;
+    }
 }
