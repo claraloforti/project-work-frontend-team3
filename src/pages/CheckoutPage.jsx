@@ -28,7 +28,13 @@ function CheckoutPage() {
                     <div>
                         {/* Bottone svuota carrello */}
                         {cart.length > 0 && (
-                            <button className="clear-cart-btn" onClick={clearCart}>
+                            <button className="clear-cart-btn"
+                                onClick={() => {
+                                    if (window.confirm("Sei sicuro di voler svuotare tutto il carrello? Questa azione non è reversibile.")) {
+                                        clearCart();
+                                    }
+                                }}
+                            >
                                 Svuota carrello
                             </button>
                         )}

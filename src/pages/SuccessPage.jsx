@@ -1,5 +1,5 @@
 import { useSearchParams, Link } from "react-router-dom";
-import { useEffect , useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useCart } from "../contexts/CartContext";
 import Swal from 'sweetalert2';
 
@@ -15,25 +15,25 @@ function SuccessPage() {
 
     const hasShownAlert = useRef(false);
 
-useEffect(() => {
-    // Questa funzione svuota lo stato 'cart' e il localStorage e mostra l'alert 
-    if (hasShownAlert.current) return;
-    hasShownAlert.current = true;
+    useEffect(() => {
+        // Questa funzione svuota lo stato 'cart' e il localStorage e mostra l'alert 
+        if (hasShownAlert.current) return;
+        hasShownAlert.current = true;
 
-    clearCart();
+        clearCart();
 
-    Swal.fire({
-        title: 'Ordine Completato! 🥃',
-        text: 'Il tuo carrello è stato svuotato con successo. Torna presto a trovarci i barili si svuotano presto!',
-        icon: 'success',
-        confirmButtonColor: '#d4af37',
-        background: '#4c301a',
-        color: '#ffffff',
-        allowOutsideClick: false,
-    });
+        Swal.fire({
+            title: 'Ordine Completato! 🥃',
+            text: 'Il tuo carrello è stato svuotato con successo. Torna presto a trovarci i barili si svuotano presto!',
+            icon: 'success',
+            confirmButtonColor: '#d4af37',
+            background: '#4c301a',
+            color: '#ffffff',
+            allowOutsideClick: false,
+        });
 
-}, [clearCart]);
-    
+    }, [clearCart]);
+
 
     return (
         <div className="payment-page container" style={{ textAlign: 'center', padding: '50px', color: 'white' }}>
