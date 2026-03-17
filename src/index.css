@@ -260,6 +260,14 @@ body {
     margin-top: 10px;
 }
 
+.search-wrapper button,
+.promo-filter *,
+.categories-filter *,
+.sort-options *,
+.reset-filters * {
+    cursor: pointer;
+}
+
 .whisky-img {
     width: 100%;
 }
@@ -580,16 +588,19 @@ body {
 .decrement-btn,
 .increment-btn {
     font-weight: bold;
+    cursor: pointer;
 }
 
 .remove-cart-btn {
     background-color: rgb(237, 207, 107);
+    cursor: pointer;
 }
 
 .clear-cart-btn {
     margin-bottom: 20px;
     padding: 7px;
-    background-color: rgb(237, 207, 107)
+    background-color: rgb(237, 207, 107);
+    cursor: pointer;
 }
 
 .total-cart-info {
@@ -661,6 +672,11 @@ form button {
 .terms-checkbox {
     margin-top: 30px;
     color: white;
+}
+
+.billing-checkbox *,
+.terms-checkbox * {
+    cursor: pointer;
 }
 
 .terms-link-btn {
