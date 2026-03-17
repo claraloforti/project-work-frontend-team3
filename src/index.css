@@ -584,6 +584,7 @@ body {
 .clear-cart-btn {
     margin-bottom: 20px;
     padding: 7px;
+    background-color: rgb(237, 207, 107)
 }
 
 .total-cart-info {
@@ -634,6 +635,7 @@ body {
 
 form button {
     cursor: pointer;
+    background-color: rgb(237, 207, 107)
 }
 
 .billing-checkbox {
@@ -653,6 +655,7 @@ form button {
 
 .terms-link-btn {
     margin: 10px 0;
+    background-color: rgb(237, 207, 107)
 }
 
 .modal-overlay {
@@ -923,7 +926,7 @@ form button {
     .on-sale-section .whisky-card,
     .whisky-page .cards-container .whisky-card,
     .wishlist-list .wishlist-card {
-        width: calc(50% - 20px) !important;
+        width: 100%;
         margin-bottom: 20px;
     }
 
@@ -992,6 +995,7 @@ form button {
         width: 100%;
     }
 
+<<<<<<< HEAD
     /* Card carrello */
     .cart-item {
         display: flex;
@@ -1002,5 +1006,22 @@ form button {
     .cart-product-info * {
         margin: 5px;
         text-align: center;
+=======
+    /* Sezione Carrello */
+    .cart-item{
+        display: block;
+        width: 150px;
+    }
+    .checkout-page img{
+        width: 100%;
+    }
+
+    /* Wishlist */
+    .wishlist-list{
+        display: block;
+    }
+    .wishlist-card{
+        width: 100%;
+>>>>>>> 003384d3975646f2461ea1e3f38c1b3d7776b797
     }
 }
