@@ -22,7 +22,7 @@ function CheckoutPage() {
             <div className="checkout-page container">
 
                 {/* CARRELLO */}
-                {cart.length === 0 && <p>Il carrello è vuoto.</p>}
+                {cart.length === 0 && <p className="empy-cart">Il carrello è vuoto.</p>}
 
                 {cart.length > 0 && (
                     <div>
@@ -108,7 +108,9 @@ function CheckoutPage() {
                 )}
 
                 {/* ORDER FORM */}
-                <OrderForm cart={cart} totalPrice={totalPrice} />
+                {cart.length > 0 && (
+                    <OrderForm cart={cart} totalPrice={totalPrice} />
+                )}
             </div>
         </>
     );

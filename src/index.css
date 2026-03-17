@@ -247,7 +247,8 @@ body {
     background-color: #edcf6bad;
     padding: 50px;
 }
-.whisky-description{
+
+.whisky-description {
     display: none;
 }
 
@@ -518,6 +519,7 @@ body {
 }
 
 .checkoutpage-title {
+    margin-top: 20px;
     margin-bottom: 50px;
     text-align: center;
     color: rgb(237, 207, 107);
@@ -603,6 +605,11 @@ body {
 .free-shipping {
     color: rgb(17, 104, 37);
     margin: 5px 0px;
+}
+
+.empy-cart {
+    margin: 0px 80px 380px;
+    font-size: 20px;
 }
 
 
