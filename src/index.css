@@ -970,8 +970,9 @@ form button {
     .full-price {
         color: black;
     }
+
     /* 404 Page */
-    .notfound-img{
+    .notfound-img {
         width: 50%;
     }
 }
@@ -1067,15 +1068,14 @@ form button {
     .wishlist-card {
         width: 100%;
     }
-<<<<<<< HEAD
+
     /* 404 page */
-    .notfound-img{
+    .notfound-img {
         display: none;
-=======
+    }
 
     /* Form */
     .order-form {
         width: 100%;
->>>>>>> 3939661 (fix responsive carrello)
     }
 }
