@@ -730,6 +730,12 @@ form button {
 
 /* SUCCESS PAGE */
 
+.payment-page {
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
 .payment-page h1 {
     color: #eec461;
     margin-bottom: 50px;
