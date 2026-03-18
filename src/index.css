@@ -222,10 +222,8 @@ body {
 }
 
 .whisky-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: inline-block;
+    width: 100%;
 }
 
 .whisky-info {
@@ -281,7 +279,7 @@ body {
 }
 
 .whisky-price {
-    margin: 20px;
+    margin: 20px 0;
 }
 
 .full-price-no-discount,
@@ -290,8 +288,8 @@ body {
     font-size: 22px;
     border: solid black 2px;
     padding: 6px;
-    margin: 20px 0;
     display: inline-block;
+    margin: 10px 0;
 }
 
 .detail-full-price-no-discount {
@@ -309,7 +307,6 @@ body {
 .discount-price {
     font-size: 22px;
     border: solid black 2px;
-    display: inline;
     padding: 6px;
 }
 
