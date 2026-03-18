@@ -636,18 +636,20 @@ body {
 .order-form * {
     margin: 1px;
     font-size: 20px;
-    width: 100%;
 }
 
-.order-form input {
+.shipping-data input,
+.billing-data input {
     background-color: #00000045;
     border: solid white 1px;
     margin: 2px 0;
     color: white;
+    width: 100%;
 }
 
 .total-order-price {
     margin-top: 60px;
+    margin-bottom: 10px;
 }
 
 .total-order-price * {
@@ -655,6 +657,7 @@ body {
 }
 
 form button {
+    width: 100%;
     cursor: pointer;
     background-color: rgb(237, 207, 107)
 }
@@ -674,9 +677,18 @@ form button {
     color: white;
 }
 
+.terms-checkbox * {
+    justify-content: center;
+}
+
 .billing-checkbox *,
 .terms-checkbox * {
     cursor: pointer;
+}
+
+#terms,
+#same-billing {
+    margin-right: 5px;
 }
 
 .terms-link-btn {
