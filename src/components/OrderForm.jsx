@@ -140,7 +140,7 @@ function OrderForm({ cart, totalPrice }) {
             <div className="billing-checkbox">
                 <input
                     type="checkbox"
-                    id="sameBilling"
+                    id="same-billing"
                     checked={sameBilling}
                     onChange={handleSameBillingChange}
                 />
@@ -164,9 +164,6 @@ function OrderForm({ cart, totalPrice }) {
                 </div>
             )}
 
-            {/* Totale ordine */}
-            <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
-
             {/* Checkbox termini e condizioni */}
             <div className="terms-checkbox">
                 <input type="checkbox" id="terms" checked={termsAccepted} onChange={handleTermsChange} />
@@ -176,6 +173,10 @@ function OrderForm({ cart, totalPrice }) {
             <button type="button" className="terms-link-btn" onClick={openModal}>
                 Leggi termini
             </button>
+
+            {/* Totale ordine */}
+            <p className="total-order-price"><strong>Totale ordine: {totalPrice.toFixed(2)} €</strong></p>
+
 
             {/* Popup termini e condizioni */}
             {isModalOpen && (
