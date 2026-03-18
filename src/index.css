@@ -812,6 +812,12 @@ form button {
     text-align: center;
 }
 
+.full-price {
+    color: black;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
 .wishlist-actions {
     display: flex;
     justify-content: center;
@@ -966,10 +972,6 @@ form button {
     .wishlist-list .wishlist-card {
         width: 100%;
         margin-bottom: 20px;
-    }
-
-    .full-price {
-        color: black;
     }
 
     /* 404 Page */
