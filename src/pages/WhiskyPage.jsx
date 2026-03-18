@@ -166,7 +166,7 @@ function WhiskyPage() {
                     <option value="name-desc">Nome: Z → A</option>
                     <option value="price-asc">Prezzo: dal più basso</option>
                     <option value="price-desc">Prezzo: dal più alto</option>
-                    <option value="recent">Più recenti</option>
+                    <option value="recent">Nuovi arrivi</option>
                 </select>
             </div>
 
