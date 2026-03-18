@@ -1057,4 +1057,8 @@ form button {
     .wishlist-card {
         width: 100%;
     }
+    /* 404 page */
+    .notfound-img{
+        display: none;
+    }
 }

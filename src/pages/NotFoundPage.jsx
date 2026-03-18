@@ -7,7 +7,7 @@ function NotFoundPage() {
             <h1>404</h1>
             <h2>Oops! Sembra che questo barile sia vuoto.</h2>
             <p>A quanto pare la pagina che stavi cercando non esiste. Ma non rimanere a bocca asciutta.</p>
-            <Link to={"/"}><img src="../public/imgs/not-found-nobg.png" alt="Bicchiere vuoto" /></Link>
+            <Link to={"/"}><img src="../public/imgs/not-found-nobg.png" alt="Bicchiere vuoto" className='notfound-img'/></Link>
 
         </div>
     );
