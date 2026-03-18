@@ -1,5 +1,6 @@
 import { useCart } from "../contexts/CartContext";
 import OrderForm from "../components/OrderForm";
+import { Link } from "react-router-dom";
 
 
 function CheckoutPage() {
@@ -42,7 +43,9 @@ function CheckoutPage() {
                             {cart.map(item => (
                                 <div key={item.slug} className="cart-item">
                                     <div className="cart-name-and-price">
-                                        <p className="cart-product-name">{item.name}</p>
+                                        <Link to={`/whisky/${item.slug}`} className="whisky-link">
+                                            <p className="cart-product-name">{item.name}</p>
+                                        </Link>
                                         {/* Prezzo */}
                                         {Number(item.unitary_price) < Number(item.price) ? (
                                             <div className="whisky-price">

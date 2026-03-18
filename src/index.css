@@ -533,6 +533,10 @@ body {
     color: rgb(237, 207, 107);
 }
 
+.checkout-page .whisky-price {
+    margin: 0;
+}
+
 .cart-summary {
     width: calc((100% / 2) - 40px);
 }
@@ -545,10 +549,6 @@ body {
     padding: 12px;
     background-color: #eec46148;
     margin-bottom: 5px;
-}
-
-.cart-item * {
-    margin: 0 5px;
 }
 
 .cart-item .whisky-price {
@@ -569,10 +569,6 @@ body {
     color: rgb(162, 162, 162);
     margin-right: 10px;
     font-size: 0.8rem;
-}
-
-.cart-unitary-price {
-    margin: 5px 0;
 }
 
 .item-quantity {
@@ -753,6 +749,7 @@ form button {
 .payment-page p {
     font-size: 18px;
 }
+
 
 /* NOT FOUND PAGE */
 .not-found-container {
@@ -1047,10 +1044,6 @@ form button {
     .cart-item {
         display: flex;
         align-items: center;
-    }
-
-    .cart-item * {
-        margin: 0 5px;
     }
 
     .decrement-btn,
