@@ -274,12 +274,12 @@ body {
     color: white;
 }
 
-.whisky-link h3 {
-    margin-bottom: 5px;
-}
-
 .whisky-price {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .full-price-no-discount,
