@@ -41,10 +41,7 @@ function CheckoutPage() {
                         <div className="cart-products">
                             {cart.map(item => (
                                 <div key={item.slug} className="cart-item">
-                                    <div className="cart-img-wrapper">
-                                        <img src={item.image} alt={item.name}></img>
-                                    </div>
-                                    <div className="cart-product-info">
+                                    <div className="cart-name-and-price">
                                         <p className="cart-product-name">{item.name}</p>
                                         {/* Prezzo */}
                                         {Number(item.unitary_price) < Number(item.price) ? (
@@ -55,8 +52,9 @@ function CheckoutPage() {
                                         ) : (
                                             <p className="cart-unitary-price">{Number(item.unitary_price).toFixed(2)} €</p>
                                         )}
+                                    </div>
 
-
+                                    <div className="cart-item-buttons">
                                         {/* Bottoni incrementa/decrementa */}
                                         <p>
                                             <button

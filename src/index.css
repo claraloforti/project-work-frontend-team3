@@ -533,27 +533,22 @@ body {
     color: rgb(237, 207, 107);
 }
 
-.checkout-page img {
-    width: 150px;
-}
-
 .cart-summary {
     width: calc((100% / 2) - 40px);
 }
 
 .cart-item {
-    border: solid rgb(237, 207, 107) 2px;
-    padding: 12px;
     display: flex;
     align-items: center;
-    gap: 30px;
+    justify-content: space-between;
+    border: solid rgb(237, 207, 107) 2px;
+    padding: 12px;
     background-color: #eec46148;
     margin-bottom: 5px;
 }
 
-.cart-product-info {
-    font-size: 0.9rem;
-    text-align: left;
+.cart-item * {
+    margin: 0 5px;
 }
 
 .cart-item .whisky-price {
@@ -561,8 +556,12 @@ body {
 }
 
 .cart-products button {
-    padding: 3px;
-    margin-bottom: 10px;
+    padding: 1.5px;
+    margin-bottom: 5px;
+}
+
+.cart-name-and-price {
+    text-align: left;
 }
 
 .cart-full-price {
@@ -573,16 +572,12 @@ body {
 }
 
 .cart-unitary-price {
-    margin: 20px 0;
-}
-
-.cart-item .whisky-price {
-    margin: 14px 0;
+    margin: 5px 0;
 }
 
 .item-quantity {
     font-size: 0.8rem;
-    margin: 8px;
+    margin: 5px;
 }
 
 .decrement-btn,
@@ -636,6 +631,10 @@ body {
 .order-form * {
     margin: 1px;
     font-size: 20px;
+}
+
+.billing-data {
+    width: 100%;
 }
 
 .shipping-data input,
@@ -1039,17 +1038,12 @@ form button {
 
     /* Sezione Carrello */
     .cart-item {
-        display: block;
-        min-width: 150px;
+        display: flex;
+        align-items: center;
     }
 
-    .checkout-page img {
-        width: 100%;
-    }
-
-    .cart-product-info * {
-        margin: 5px;
-        text-align: center;
+    .cart-item * {
+        margin: 0 5px;
     }
 
     .decrement-btn,
@@ -1073,8 +1067,15 @@ form button {
     .wishlist-card {
         width: 100%;
     }
+<<<<<<< HEAD
     /* 404 page */
     .notfound-img{
         display: none;
+=======
+
+    /* Form */
+    .order-form {
+        width: 100%;
+>>>>>>> 3939661 (fix responsive carrello)
     }
 }
