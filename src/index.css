@@ -971,6 +971,10 @@ form button {
     .full-price {
         color: black;
     }
+    /* 404 Page */
+    .notfound-img{
+        width: 50%;
+    }
 }
 
 
