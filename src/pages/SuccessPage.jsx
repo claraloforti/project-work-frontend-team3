@@ -16,7 +16,7 @@ function SuccessPage() {
 
     useEffect(() => {
         clearCart();
-    }, [clearCart]);
+    }, []);
 
 
     return (
