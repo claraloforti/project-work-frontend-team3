@@ -1034,6 +1034,11 @@ form button {
         min-width: 100%;
     }
 
+    .whisky-page .cards-container.list,
+    .view-toggle {
+        display: none;
+    }
+
     /* Whisky Detail Card */
     .whisky-detail-card {
         display: block;
