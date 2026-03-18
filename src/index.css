@@ -228,6 +228,8 @@ body {
 
 .whisky-info {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .new-products .whisky-img-wrapper i {
@@ -289,6 +291,10 @@ body {
     border: solid black 2px;
     padding: 6px;
     display: inline-block;
+}
+
+.wishlist-card .full-price-no-discount,
+.detail-full-price-no-discount {
     margin: 10px 0;
 }
 

@@ -34,14 +34,16 @@ function WhiskyCard({ whisky }) {
                 <p>{whisky.category}</p>
                 <p className="whisky-description">{whisky.description}</p>
                 {/* Prezzo */}
-                {whisky.discount > 0 ? (
-                    <div className="whisky-price">
-                        <span className="full-price">{whisky.price} €</span>
-                        <span className="discount-price">{Number(whisky.unitary_price).toFixed(2)} €</span>
-                    </div>
-                ) : (
-                    <p className="full-price-no-discount">{whisky.price} €</p>
-                )}
+                <div className="whisky-price">
+                    {whisky.discount > 0 ? (
+                        <>
+                            <span className="full-price">{whisky.price} €</span>
+                            <span className="discount-price">{Number(whisky.unitary_price).toFixed(2)} €</span>
+                        </>
+                    ) : (
+                        <span className="full-price-no-discount">{whisky.price} €</span>
+                    )}
+                </div>
 
                 {/* Bottone aggiungi al carrello */}
                 <div className="card-button">
