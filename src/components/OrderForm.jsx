@@ -85,7 +85,7 @@ function OrderForm({ cart, totalPrice }) {
         };
 
         // Invio dati al BE
-        axios.post("http://localhost:3000/api/products/orders", orderPayload)
+        axios.post(`${import.meta.env.VITE_API_URL}/api/products/orders`, orderPayload)
             .then(res => {
                 // Reindirizza l’utente alla pagina di pagamento Stripe se il backend restituisce l’URL della sessione
                 if (res.data.url) {

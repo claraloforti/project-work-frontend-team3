@@ -18,7 +18,7 @@ function WhiskyPage() {
 
     // Carica le categorie dal BE
     useEffect(() => {
-        axios.get("http://localhost:3000/api/products/categories")
+        axios.get(`${import.meta.env.VITE_API_URL}/api/products/categories`)
             .then(res => setCategories(res.data))
             .catch(err => console.error("Errore nel caricamento categorie:", err));
     }, []);
@@ -50,7 +50,7 @@ function WhiskyPage() {
             sort: sortOption || ""
         });
 
-        axios.get("http://localhost:3000/api/products", { params })
+        axios.get(`${import.meta.env.VITE_API_URL}/api/products`, { params })
             .then(res => {
                 setWhiskies(res.data);
                 setHasSearched(true);
@@ -82,7 +82,7 @@ function WhiskyPage() {
                 sort: sortOption || ""
             });
 
-            axios.get("http://localhost:3000/api/products", {
+            axios.get(`${import.meta.env.VITE_API_URL}/api/products`, {
                 params: {
                     searchTerm: searchTerm || undefined,
                     category: categoryFilter || undefined,

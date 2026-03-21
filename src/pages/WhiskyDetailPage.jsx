@@ -14,7 +14,7 @@ function WhiskyDetailPage() {
 
     useEffect(() => {
         setLoading(true);
-        axios.get(`http://localhost:3000/api/products/${slug}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/api/products/${slug}`)
             .then(res => {
                 setWhisky(res.data);
             })

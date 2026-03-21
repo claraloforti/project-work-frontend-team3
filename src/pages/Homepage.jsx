@@ -13,7 +13,7 @@ function Homepage() {
     setLoading(true);
 
     // Prendo i 4 prodotti più recenti
-    axios.get("http://localhost:3000/api/products", { params: { sort: "recent" } })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/products`, { params: { sort: "recent" } })
       .then(res => {
         const allProducts = res.data;
         setNewProducts(allProducts.slice(0, 4));
@@ -24,7 +24,7 @@ function Homepage() {
       });
 
     // Prendo solo i prodotti in promozione
-    axios.get("http://localhost:3000/api/products", { params: { promo: "true" } })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/products`, { params: { promo: "true" } })
       .then(res => {
         setOnSaleWhiskies(res.data);
       })
